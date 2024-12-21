@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Simulator Resource</name>
+   <name>Simulator Resource Bluebird</name>
    <tag></tag>
    <elementGuidId>1f428ae6-70c2-4174-845d-bc7731e23622</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>

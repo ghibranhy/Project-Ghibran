@@ -38,7 +38,7 @@ public class SimulatorDataManager {
 		ResponseObject resp
 		session = TransactionalManager.getBBDSimulatorSession()
 		if(session != null) {
-			resp = WS.sendRequest(findTestObject('Object Repository/Simulator/Simulator Resource',
+			resp = WS.sendRequest(findTestObject('Object Repository/Simulator/Simulator Resource Bluebird',
 					[
 						'session_id': session
 					]))
@@ -177,9 +177,9 @@ public class SimulatorDataManager {
 		WS.comment(session)
 
 		def resp = WS.sendRequest(findTestObject('Object Repository/Simulator/Statistics',
-		[
-			'session_id': session
-		]))
+				[
+					'session_id': session
+				]))
 
 		if(WS.getResponseStatusCode(resp) != 200) {
 			KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(resp))
