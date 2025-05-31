@@ -11,7 +11,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n    \&quot;session_id\&quot;: \&quot;${session_id}\&quot;,\n    \&quot;num_vehicle_driver\&quot;: 1,\n    \&quot;service_id\&quot;: 1,\n    \&quot;vehicle_speed\&quot;: 20,\n    \&quot;track_interval\&quot;: 20,\n    \&quot;job_confirm_pct\&quot;: 100,\n    \&quot;offer_bid_pct\&quot;: 100,\n    \&quot;auto_bid\&quot;: true,\n    \&quot;auto_iot\&quot;: false,\n    \&quot;center_loc\&quot;: {\n        \&quot;lat\&quot;: -6.30255,\n        \&quot;lng\&quot;: 106.64525,\n        \&quot;radius\&quot;: 100\n    },\n    \&quot;track_param\&quot;: 20,\n    \&quot;flag_odrd\&quot;: false,\n    \&quot;vehicle_type\&quot;: 0\n}&quot;,
+  &quot;text&quot;: &quot;{\n    \&quot;session_id\&quot;: \&quot;${session_id}\&quot;,\n    \&quot;num_vehicle_driver\&quot;: 1,\n    \&quot;service_id\&quot;: 1,\n    \&quot;vehicle_speed\&quot;: 20,\n    \&quot;track_interval\&quot;: 20,\n    \&quot;job_confirm_pct\&quot;: 100,\n    \&quot;offer_bid_pct\&quot;: 100,\n    \&quot;auto_bid\&quot;: true,\n    \&quot;auto_iot\&quot;: false,\n    \&quot;center_loc\&quot;: {\n        \&quot;lat\&quot;: -6.081969705141279,\n        \&quot;lng\&quot;: 106.67869753502303,\n        \&quot;radius\&quot;: 100\n    },\n    \&quot;track_param\&quot;: 20,\n    \&quot;flag_odrd\&quot;: false,\n    \&quot;vehicle_type\&quot;: 0\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>

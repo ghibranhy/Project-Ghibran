@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>004. Create order immediate time out cancel</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>cf07e1de-208c-4f7d-a4f4-7cb54f75aa33</testCaseGuid>
+</TestCaseEntity>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>027. Order with payment ECV without trip purpose</name>
+   <tag></tag>
+   <comment></comment>
+   <testCaseGuid>bab1e3a7-401e-45c4-bb62-e083936671c4</testCaseGuid>
+</TestCaseEntity>

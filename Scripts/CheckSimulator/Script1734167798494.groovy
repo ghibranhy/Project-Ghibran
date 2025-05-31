@@ -10,10 +10,35 @@ import groovy.ui.SystemOutputInterceptor
 import custom_library.SimulatorDataManager
 import internal.GlobalVariable
 
+//def pairing_driver = "0"
+//int count = 0
+//
+//while(pairing_driver != "1" && count < 2) {
+//	SimulatorDataManager.createSession()
+//	SimulatorDataManager.simulatorResourceBluebird()
+//	SimulatorDataManager.uploadSio()
+//	SimulatorDataManager.iotLogin()
+//	SimulatorDataManager.driverLogin()
+//	SimulatorDataManager.driverPairing()
+////	SimulatorDataManager.checkStatistics()
+////	SimulatorDataManager.invalidSession()
+//	
+//	//Tunggu sampai pairing benar-benar terjadi
+//	pairing_driver = TransactionalManager.getPairingDriver()
+//	
+//	// Kalau sudah pairing, baru jalankan invalid session
+//	if (pairing_driver == "1") {
+//		SimulatorDataManager.invalidSession()
+//	}
+//	
+//	SimulatorDataManager.checkStatistics()
+//	count++ ;
+//}
+
 def pairing_driver = "0"
 int count = 0
 
-while(pairing_driver != "1" && count < 2) {
+while(pairing_driver != "1" && count < 3) {
 	SimulatorDataManager.createSession()
 	SimulatorDataManager.simulatorResourceBluebird()
 	SimulatorDataManager.uploadSio()
@@ -21,6 +46,7 @@ while(pairing_driver != "1" && count < 2) {
 	SimulatorDataManager.driverLogin()
 	SimulatorDataManager.driverPairing()
 	SimulatorDataManager.checkStatistics()
+	SimulatorDataManager.invalidSession()
 	
 	pairing_driver = TransactionalManager.getPairingDriver()
 	
@@ -30,4 +56,3 @@ System.out.print(pairing_driver)
 if (pairing_driver == "0" ) {
 	System.exit(0)
 }
-

@@ -195,6 +195,26 @@ public class SimulatorDataManager {
 			}
 		}
 	}
+
+	public static invalidSession() {
+		WS.delay(5)
+		def session = TransactionalManager.getBBDSimulatorSession()
+		WS.comment(session)
+
+		def resp = WS.sendRequest(findTestObject('Object Repository/Simulator/InvalidSession',
+				[
+					'session_id': session
+				]))
+
+		if(WS.getResponseStatusCode(resp) != 200) {
+			KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(resp))
+		} else {
+			KeywordUtil.markPassed("Succes invalid session" + " " +session)
+		}
+	}
+
+
+
 	public static iotEvent() {
 		WS.delay(3)
 		def resp = WS.sendRequest(findTestObject('Object Repository/Simulator/IoT Event'))

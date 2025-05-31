@@ -30,6 +30,7 @@ public class TransactionalManager {
 	static String BBDSimulatorDriverPass = null
 	static String BBDSimulatorDeviceID = null
 	static String OrderID = null
+	static String getOrderID = null
 	static String PriceBeforePromo = null
 	static String PriceAfterPromo = null
 	static String EvoucherBalance = null
@@ -41,8 +42,11 @@ public class TransactionalManager {
 	static String HandlingFee = null
 	static String HandlingFeeTotal = null
 	static String OrderIDMybb = null
+	static String getOrderIDMybb = null
 	static String IotState = null
+	static String getIotState = null
 	static String PairingDriver = null
+	static String getPairingDriver = null
 
 
 	@Keyword
@@ -187,6 +191,10 @@ public class TransactionalManager {
 		OrderID = order_id
 	}
 	@Keyword
+	public static void setgetOrderID(String order_id) {
+		OrderID = order_id
+	}
+	@Keyword
 	public static void setPriceBeforePromo(String price_before_promo) {
 		PriceBeforePromo = price_before_promo
 	}
@@ -223,11 +231,23 @@ public class TransactionalManager {
 		OrderIDMybb = order_id_mybb
 	}
 	@Keyword
+	public static void SetgetOrderIDMybb(String order_id_mybb) {
+		OrderIDMybb = order_id_mybb
+	}
+	@Keyword
 	public static void SetIotState(String state_iot) {
 		IotState = state_iot
 	}
 	@Keyword
+	public static void SetgetIotState(String state_iot) {
+		IotState = state_iot
+	}
+	@Keyword
 	public static void SetPairingDriver(String pairing_driver) {
+		PairingDriver = pairing_driver
+	}
+	@Keyword
+	public static void SetgetPairingDriver(String pairing_driver) {
 		PairingDriver = pairing_driver
 	}
 }
