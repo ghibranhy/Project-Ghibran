@@ -35,24 +35,45 @@ import internal.GlobalVariable
 //	count++ ;
 //}
 
+//def pairing_driver = "0"
+//int count = 0
+//
+//while(pairing_driver != "1" && count <= 3) {
+//	SimulatorDataManager.createSession()
+//	SimulatorDataManager.simulatorResourceBluebird()
+//	SimulatorDataManager.uploadSio()
+//	SimulatorDataManager.iotLogin()
+//	SimulatorDataManager.driverLogin()
+//	SimulatorDataManager.driverPairing()
+//	SimulatorDataManager.checkStatistics()
+////	SimulatorDataManager.invalidSession()
+//	
+//	pairing_driver = TransactionalManager.getPairingDriver()
+//	
+//	count++ ;
+//}
+//System.out.print("pairing driver is: "+pairing_driver)
+//if (pairing_driver == "0" ) {
+//	System.exit(0)
+//}
+
+
+SimulatorDataManager.createSession()
+SimulatorDataManager.simulatorResourceBluebird()
+SimulatorDataManager.uploadSio()
+SimulatorDataManager.iotLogin()
+SimulatorDataManager.driverLogin()
+SimulatorDataManager.invalidSession()
+
 def pairing_driver = "0"
 int count = 0
 
-while(pairing_driver != "1" && count < 3) {
-	SimulatorDataManager.createSession()
-	SimulatorDataManager.simulatorResourceBluebird()
-	SimulatorDataManager.uploadSio()
-	SimulatorDataManager.iotLogin()
-	SimulatorDataManager.driverLogin()
+while (pairing_driver == "0") {
 	SimulatorDataManager.driverPairing()
-	SimulatorDataManager.checkStatistics()
-	SimulatorDataManager.invalidSession()
-	
-	pairing_driver = TransactionalManager.getPairingDriver()
-	
-	count++ ;
+	pairing_driver = SimulatorDataManager.checkStatistics()
+	println("Percobaan ke-${count+1}, pairing_driver = $pairing_driver")
+	count++
+	sleep(2000)
 }
-System.out.print(pairing_driver)
-if (pairing_driver == "0" ) {
-	System.exit(0)
-}
+
+println("✅ Pairing berhasil setelah $count percobaan")

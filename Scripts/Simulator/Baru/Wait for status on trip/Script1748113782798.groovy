@@ -12,14 +12,15 @@ import internal.GlobalVariable
 def expected_status = 'start' 
 
 // Logic dari test case kedua, langsung jalanin disini
+def expected_status = expected_status
 WS.delay(3)
 def globalLoadingSafe = GlobalVariable.globalLoading ?: 1
 long timeout = new Date().getTime() + (9000 * globalLoadingSafe)
 
 switch (expected_status) {
 	case "start":
-		SimulatorDataManager.IOtState()
-		def state = TransactionalManager.getIotState()
+	SimulatorDataManager.IOtState()
+	def state = TransactionalManager.getIotState()
 		while(state != expected_status && new Date().getTime() < timeout) {
 			WS.delay(3)
 			SimulatorDataManager.iotEvent() 
@@ -43,7 +44,7 @@ switch (expected_status) {
 			SimulatorDataManager.IOtState()
 			state = TransactionalManager.getIotState()
 			WS.comment(state)
-		}
-		WS.comment('state is = ' + state)
+			}
+		WS.comment('state is ='+' '+state)
 		break
 }

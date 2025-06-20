@@ -17,6 +17,8 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import custom_library.ErrorHandlingManager
+import custom_library.TransactionalManager
+import internal.GlobalVariable
 
 Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
@@ -26,8 +28,6 @@ def waitForReadyAndTap(TestObject to, int timeout = 5) {
 	Mobile.waitForElementAttributeValue(to, 'enabled', 'true', timeout)
 	Mobile.tap(to, timeout)
 }
-
-Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
 // Homepage
 waitForReadyAndTap(findTestObject('Object Repository/Delivery/1. Home Page/button.Home'))
@@ -75,56 +75,86 @@ Mobile.delay(5)
 // Select Payment
 //Mobile.tapAtPosition(363, 1830)
 //Mobile.delay(2)
-//waitForReadyAndTap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/selectPayment.Visa'))
+//waitForReadyAndTap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/select.PaymentVisa'))
 //Mobile.delay(3)
 
 // Create Order
 Mobile.tapAtPosition(769, 2124)
-Mobile.takeScreenshot()
+Mobile.delay (12)
 
-//On Trip
-def expected_status = 'start'
-Mobile.callTestCase(findTestCase('Test Cases/Simulator/Set Status Simulator'), 
-                   ['expected_status': expected_status], FailureHandling.STOP_ON_FAILURE)
-
-// Ubah status ke 'complete' dan panggil kembali test case simulator
-expected_status = 'complete'
-Mobile.callTestCase(findTestCase('Test Cases/Simulator/Set Status Simulator'), 
-                   ['expected_status': expected_status], FailureHandling.STOP_ON_FAILURE)
-
-
-WS.delay(3)
-
-token = TransactionalManager.getBBDAuthToken()
-order_id = TransactionalManager.getOrderID()
-
-order_status = null
-KeywordUtil.logInfo("GlobalVariable.globalLoading: " + GlobalVariable.globalLoading)
-long timeout = new Date().getTime() + (9000 * (GlobalVariable.globalLoading ?: 1))
-
-while(order_status != 4 && new Date().getTime() < timeout) {
-	order_detail = WS.sendRequest(findTestObject('BB Dispatch/_ API/Order Detail (input - token, order_id)', [('token') : token, ('order_id'): order_id]))
-	if(WS.getResponseStatusCode(order_detail) != 200) {
-		KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(order_detail))
-	} else {
-		try {
-			order_status = WS.getElementPropertyValue(order_detail, 'status')
-			WS.comment("Order status: $order_status")
-		} catch (Exception error) {
-			KeywordUtil.markWarning("\n\nERROR: $error\n")
-		}
-	WS.delay(3)
-	}
+// Helper: versi string path
+def waitForReadyAndTap(String objectPath, int timeout = 5) {
+	def testObject = findTestObject(objectPath)
+	Mobile.waitForElementPresent(testObject, timeout)
+	Mobile.waitForElementAttributeValue(testObject, 'enabled', 'true', timeout)
+	Mobile.tap(testObject, timeout)
 }
 
-if (order_status != 4) {
-	WS.comment("Order status: $order_status")
-	KeywordUtil.markErrorAndStop("Order Status is not 4 (Completed) as expected. It is " + order_status)
-	System.exit(0)
+int maxRetry = 5
+int retry = 0
+boolean timeoutStillExists = true
+
+while (retry < maxRetry && timeoutStillExists) {
+    println(">>> Loop ke-${retry + 1}: Back & buka ulang Active Order")
+
+    // Step 1: Back dari halaman Finding
+    waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.BackFinding')
+
+    // Step 2: Klik Active Order dari Home
+    waitForReadyAndTap('Object Repository/Delivery/1. Home Page/Select.ActiveOrderHomePage')
+
+    // Step 3: Cek apakah muncul tombol Timeout
+    timeoutStillExists = Mobile.waitForElementPresent(
+        findTestObject('Object Repository/Delivery/6. On Trip/button.CancelTimeout'),
+        5,
+        FailureHandling.OPTIONAL
+    )
+
+    if (timeoutStillExists) {
+        println("⚠️ Timeout muncul, klik Try Again")
+
+        // Klik tombol Try Again
+        waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.TryAgainTimeout')
+
+        // Kembali dan ulangi proses buka Active Order
+        waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.BackFinding')
+        waitForReadyAndTap('Object Repository/Delivery/1. Home Page/Select.ActiveOrderHomePage')
+
+        retry++
+    } else {
+        println("✅ Timeout tidak muncul. Finding dianggap berhasil.")
+    }
 }
 
-Mobile.pressHome()
+if (timeoutStillExists) {
+    KeywordUtil.markFailed("❌ Timeout masih muncul setelah ${maxRetry} kali refresh.")
+} else {
+    println("✅ Lanjut ke step berikutnya.")
+}
 
+String test_case_name = TransactionalManager.getMyBBTestCaseName()?.toLowerCase() ?: ''
+String folder_case_name = TransactionalManager.getMyBBFolderCaseName()?.toLowerCase() ?: ''
+String vehicle_type
+
+if (test_case_name.contains('Order'.toLowerCase())) {
+	vehicle_type = 'Delivery BB'
+}
+
+//WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Get Token'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
+//
+//WS.callTestCase(findTestCase('Test Cases/Simulator/Get Order ID'), ['vehicle_type':vehicle_type,'test_case_name':test_case_name], FailureHandling.STOP_ON_FAILURE)
+
+//WS.callTestCase(findTestCase('Test Cases/Simulator/Edit Order Detail'), [:], FailureHandling.STOP_ON_FAILURE)
+
+WS.callTestCase(findTestCase('Test Cases/Simulator/Handle Order to Simulator'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
+
+WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status on trip'), [:], FailureHandling.STOP_ON_FAILURE)
+
+WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Complete Order'), [:], FailureHandling.STOP_ON_FAILURE)
+
+WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status complete'), [:], FailureHandling.STOP_ON_FAILURE)
+
+Mobile.callTestCase(findTestCase('Test Cases/Simulator/Baru/Continue MyBB' + ' ' + vehicle_type), [:], FailureHandling.STOP_ON_FAILURE)
 
 
 

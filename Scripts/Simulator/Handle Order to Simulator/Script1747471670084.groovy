@@ -18,7 +18,7 @@ token = TransactionalManager.getBBDAuthToken()
 job_id = TransactionalManager.getOrderID()
 
 order_status = null
-timeout = new Date().getTime() + (16000 * GlobalVariable.globalLoading)
+timeout = new Date().getTime() + (16000 * (GlobalVariable.globalLoading ?: 1))
 //retry_count = 0 //0 for First Timeout Order and 1 for Second Timeout Order
 
 while(order_status != 2 && new Date().getTime() < timeout) {

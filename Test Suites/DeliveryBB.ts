@@ -99,7 +99,7 @@
       <guid>91685f3e-ff1c-4534-bc95-a8bea81ae5f7</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>true</isRun>
-      <testCaseId>Test Cases/Tester Test Case</testCaseId>
+      <testCaseId>Test Cases/Tester Test Case Order</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
 </TestSuiteEntity>

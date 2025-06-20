@@ -171,7 +171,31 @@ public class SimulatorDataManager {
 			}
 		}
 	}
-	public static checkStatistics() {
+	//	public static checkStatistics() {
+	//		WS.delay(5)
+	//		def session = TransactionalManager.getBBDSimulatorSession()
+	//		WS.comment(session)
+	//
+	//		def resp = WS.sendRequest(findTestObject('Object Repository/Simulator/Statistics',
+	//				[
+	//					'session_id': session
+	//				]))
+	//
+	//		if(WS.getResponseStatusCode(resp) != 200) {
+	//			KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(resp))
+	//		} else {
+	//			def pairing_driver = WS.getElementPropertyValue(resp, 'field_driver_pairing_success')
+	//			WS.comment(pairing_driver)
+	//			def pairing_driver_success = pairing_driver
+	//			TransactionalManager.setPairingDriver(pairing_driver_success)
+	//			if(pairing_driver_success == null || pairing_driver_success == "0" ) {
+	//				KeywordUtil.markFailed("driver not pairing" + ' '+ pairing_driver)
+	//			} else {
+	//				KeywordUtil.markPassed("Succes pairing driver" + " " +pairing_driver)
+	//			}
+	//		}
+	//	}
+	public static String checkStatistics() {
 		WS.delay(5)
 		def session = TransactionalManager.getBBDSimulatorSession()
 		WS.comment(session)
@@ -181,21 +205,23 @@ public class SimulatorDataManager {
 					'session_id': session
 				]))
 
-		if(WS.getResponseStatusCode(resp) != 200) {
+		if (WS.getResponseStatusCode(resp) != 200) {
 			KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(resp))
+			return "0"
 		} else {
 			def pairing_driver = WS.getElementPropertyValue(resp, 'field_driver_pairing_success')
-			WS.comment(pairing_driver)
-			def pairing_driver_success = pairing_driver
-			TransactionalManager.setPairingDriver(pairing_driver_success)
-			if(pairing_driver_success == null || pairing_driver_success == "0" ) {
-				KeywordUtil.markFailedAndStop("driver not pairing" + ' '+ pairing_driver)
+			WS.comment("field_driver_pairing_success: " + pairing_driver)
+			TransactionalManager.setPairingDriver(pairing_driver)
+
+			if (pairing_driver == "0") {
+				KeywordUtil.logInfo("❌ Pairing gagal: $pairing_driver")
+				return "0"
 			} else {
-				KeywordUtil.markPassed("Succes pairing driver" + " " +pairing_driver)
+				KeywordUtil.logInfo("✅ Pairing berhasil: $pairing_driver")
+				return "1"
 			}
 		}
 	}
-
 	public static invalidSession() {
 		WS.delay(5)
 		def session = TransactionalManager.getBBDSimulatorSession()

@@ -1,38 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>On Going Order</name>
+   <name>Validate User</name>
    <tag></tag>
-   <elementGuidId>15c73852-6dc6-4ab0-a525-83f336eb0fc4</elementGuidId>
+   <elementGuidId>a3b00b02-1295-4266-abd1-69ec71bbadfc</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
-   <autoUpdateContent>true</autoUpdateContent>
+   <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
-   <httpBodyContent></httpBodyContent>
-   <httpBodyType></httpBodyType>
+   <httpBodyContent>{
+  &quot;text&quot;: &quot;{\n  \&quot;country_code\&quot;: \&quot;+62\&quot;,\n  \&quot;login_id\&quot;: \&quot;${phone_number}\&quot;,\n  \&quot;login_type\&quot;: \&quot;phone\&quot;,\n  \&quot;region_code\&quot;: \&quot;ID\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;\n}&quot;,
+  &quot;contentType&quot;: &quot;application/json&quot;,
+  &quot;charset&quot;: &quot;UTF-8&quot;
+}</httpBodyContent>
+   <httpBodyType>text</httpBodyType>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
-      <name>token</name>
+      <name>Content-Type</name>
       <type>Main</type>
-      <value>042b1c7945b90d0dba9c54cb9d49a9917ed9f110d4b268315481ec76cccf3046</value>
-      <webElementGuid>2c2ab3e7-fc8c-47ef-89f9-a7df2f30c229</webElementGuid>
+      <value>application/json</value>
+      <webElementGuid>b0aab353-1809-431b-acd6-cb6132fef4df</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
       <isSelected>true</isSelected>
       <matchCondition>equals</matchCondition>
       <name>App-Version</name>
       <type>Main</type>
-      <value>6.15.0-regress</value>
-      <webElementGuid>0a8112bc-db09-4e4d-b8ef-e2527baff485</webElementGuid>
+      <value>${app_version}</value>
+      <webElementGuid>88cd098a-d253-4b18-8e69-3f922a75aa0b</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.4.1</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
-   <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/me/orders/ongoing/all?limit=20&amp;service_type=&amp;scheduled=false&amp;cursor=</restUrl>
+   <restRequestMethod>POST</restRequestMethod>
+   <restUrl>${GlobalVariable.baseUrl}/api/v6/sessions/check</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
@@ -53,6 +57,8 @@ import internal.GlobalVariable as GlobalVariable
 
 RequestObject request = WSResponseManager.getInstance().getCurrentRequest()
 
-ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()</verificationScript>
+ResponseObject response = WSResponseManager.getInstance().getCurrentResponse()
+
+</verificationScript>
    <wsdlAddress></wsdlAddress>
 </WebServiceRequestEntity>

@@ -12,7 +12,9 @@ public class TransactionalManager {
 	static String StatusBeforeLoading = null
 	static String ExpectedAndroidDriver = null
 	static String MyBBTestCaseName = null
+	static String getMyBBTestCaseName = null
 	static String MyBBFolderCaseName = null
+	static String getMyBBFolderCaseName = null
 	static String MyBBTestSuitesName = null
 	static String ExpectedToastMessageEng = null
 	static String ExpectedToastMessageIdn = null
@@ -70,8 +72,16 @@ public class TransactionalManager {
 		MyBBTestCaseName = testcase_name
 	}
 	@Keyword
+	public static String getMyBBTestCaseName() {
+	return MyBBTestCaseName
+	}
+	@Keyword
 	public static void setMyBBFolderCaseName(String foldercase_name) {
 		MyBBFolderCaseName = foldercase_name
+	}
+	@Keyword
+	public static String getMyBBFolderCaseName() {
+	return MyBBFolderCaseName
 	}
 	@Keyword
 	public static void setMyBBTestSuitesName(String testsuites_name) {
@@ -191,7 +201,7 @@ public class TransactionalManager {
 		OrderID = order_id
 	}
 	@Keyword
-	public static void setgetOrderID(String order_id) {
+	public static void getOrderID(String order_id) {
 		OrderID = order_id
 	}
 	@Keyword
@@ -231,7 +241,7 @@ public class TransactionalManager {
 		OrderIDMybb = order_id_mybb
 	}
 	@Keyword
-	public static void SetgetOrderIDMybb(String order_id_mybb) {
+	public static void getOrderIDMybb(String order_id_mybb) {
 		OrderIDMybb = order_id_mybb
 	}
 	@Keyword
@@ -247,7 +257,7 @@ public class TransactionalManager {
 		PairingDriver = pairing_driver
 	}
 	@Keyword
-	public static void SetgetPairingDriver(String pairing_driver) {
+	public static void getPairingDriver(String pairing_driver) {
 		PairingDriver = pairing_driver
 	}
 }

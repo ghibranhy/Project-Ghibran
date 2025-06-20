@@ -24,8 +24,8 @@ def order_id
 def job_id
 def resp
 //def vehicle_type = vehicle_type.toLowerCase()
-//String test_case_name = test_case_name
-KeywordUtil.logInfo("Test Case Name: " + test_case_name)
+String test_case_name = test_case_name
+//KeywordUtil.logInfo("Test Case Name: " + test_case_name)
 
 
 /* get job_id from on-going order */
@@ -59,7 +59,7 @@ if (WS.getResponseStatusCode(resp) != 200 && WS.getResponseStatusCode(resp) != 2
 }
 /*
 //get external_order_id from order_detail mybb
-order_detail = WS.sendRequest(findTestObject('Object Repository/MyBB/_API/Get Order Id',
+order_detail = WS.sendRequest(findTestObject('Object Repository/Simulator/Get Order Id',
 	[
 		'order_id': order_id,
 		'token': TransactionalManager.getMyBBToken(),
