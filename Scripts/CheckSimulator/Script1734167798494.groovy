@@ -63,7 +63,7 @@ SimulatorDataManager.simulatorResourceBluebird()
 SimulatorDataManager.uploadSio()
 SimulatorDataManager.iotLogin()
 SimulatorDataManager.driverLogin()
-SimulatorDataManager.invalidSession()
+//SimulatorDataManager.invalidSession()
 
 def pairing_driver = "0"
 int count = 0

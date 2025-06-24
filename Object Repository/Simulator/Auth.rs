@@ -7,11 +7,11 @@
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>false</autoUpdateContent>
-   <connectionTimeout>0</connectionTimeout>
+   <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;device_token\&quot;: \&quot;testing\&quot;,\n  \&quot;password\&quot;: \&quot;${password}\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;manufacturer\&quot;: \&quot;Samsung\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;,\n  \&quot;os_version\&quot;: \&quot;14\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;device_token\&quot;: \&quot;testing\&quot;,\n  \&quot;password\&quot;: \&quot;mybb1234\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;manufacturer\&quot;: \&quot;Samsung\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;,\n  \&quot;os_version\&quot;: \&quot;14\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -29,7 +29,7 @@
       <matchCondition>equals</matchCondition>
       <name>App-Version</name>
       <type>Main</type>
-      <value>${app_version}</value>
+      <value>6.15.0</value>
       <webElementGuid>ed9eb88d-6246-4fe2-a090-0bacd8418450</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
@@ -41,17 +41,17 @@
       <webElementGuid>df187aa5-5ab4-4c45-b0f1-91a42c5c7099</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.4.1</katalonVersion>
-   <maxResponseSize>0</maxResponseSize>
+   <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${GlobalVariable.baseUrl}/api/v6/sessions</restUrl>
+   <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/sessions</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>
    <soapRequestMethod></soapRequestMethod>
    <soapServiceEndpoint></soapServiceEndpoint>
    <soapServiceFunction></soapServiceFunction>
-   <socketTimeout>0</socketTimeout>
+   <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
    <variables>
       <defaultValue>''</defaultValue>

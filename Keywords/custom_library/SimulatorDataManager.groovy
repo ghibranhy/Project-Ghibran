@@ -61,11 +61,18 @@ public class SimulatorDataManager {
 				WS.comment(vehicle_id)
 				WS.comment(driver_pass)
 				WS.comment(device_id)
+				
+				// Set ke TransactionalManager
 				TransactionalManager.setBBDSimulatorNomorLambung(nomor_lambung)
 				TransactionalManager.setBBDSimulatorDriverID(driver_id)
 				TransactionalManager.setBBDSimulatorVehicleID(vehicle_id)
 				TransactionalManager.setBBDSimulatorDriverPass(driver_pass)
 				TransactionalManager.setBBDSimulatorDeviceID(device_id)
+				
+				// Set ke GlobalVariable
+				GlobalVariable.BBDSimulatorNomorLambung = nomor_lambung
+				GlobalVariable.BBDSimulatorDriverID = driver_id
+				GlobalVariable.BBDSimulatorVehicleID = vehicle_id
 			} catch (Exception error) {
 				KeywordUtil.markErrorAndStop("\n\nERROR: $error\n")
 			}

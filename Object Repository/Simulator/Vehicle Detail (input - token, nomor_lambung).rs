@@ -33,7 +33,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>${GlobalVariable.envBbd1}/vehicle/getbyno/${nomor_lambung}</restUrl>
+   <restUrl>https://regressapi.bluebird.id/vehicle/getbyno/${vehicle_no}</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

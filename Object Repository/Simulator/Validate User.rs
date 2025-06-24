@@ -11,7 +11,7 @@
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;country_code\&quot;: \&quot;+62\&quot;,\n  \&quot;login_id\&quot;: \&quot;${phone_number}\&quot;,\n  \&quot;login_type\&quot;: \&quot;phone\&quot;,\n  \&quot;region_code\&quot;: \&quot;ID\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;country_code\&quot;: \&quot;+62\&quot;,\n  \&quot;login_id\&quot;: \&quot;0895351529742\&quot;,\n  \&quot;login_type\&quot;: \&quot;phone\&quot;,\n  \&quot;region_code\&quot;: \&quot;ID\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -29,14 +29,14 @@
       <matchCondition>equals</matchCondition>
       <name>App-Version</name>
       <type>Main</type>
-      <value>${app_version}</value>
-      <webElementGuid>88cd098a-d253-4b18-8e69-3f922a75aa0b</webElementGuid>
+      <value>6.15.0</value>
+      <webElementGuid>075e20d8-14aa-44f0-8d2d-cf487c6cc756</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.4.1</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>POST</restRequestMethod>
-   <restUrl>${GlobalVariable.baseUrl}/api/v6/sessions/check</restUrl>
+   <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/sessions/check</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

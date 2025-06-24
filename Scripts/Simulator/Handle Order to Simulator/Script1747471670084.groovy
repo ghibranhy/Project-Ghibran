@@ -5,64 +5,96 @@ import com.kms.katalon.core.mobile.keyword.MobileBuiltInKeywords as Mobile
 import com.kms.katalon.core.model.FailureHandling
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-
+import com.kms.katalon.core.testobject.TestObjectProperty
+import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.testobject.RequestObject
+import com.kms.katalon.core.testobject.ResponseObject
+import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
+import com.kms.katalon.core.util.KeywordUtil
+import groovy.json.JsonSlurper
+import com.kms.katalon.core.testobject.impl.HttpTextBodyContent
 import custom_library.TransactionalManager
 import custom_library.SimulatorDataManager
 import internal.GlobalVariable
 
-String vehicle_type = vehicle_type
+// =============================================
+// 🔐 Ambil token auth dari endpoint BBD
+// =============================================
 
-WS.delay(3)
+RequestObject authRequest = new RequestObject()
+authRequest.setRestUrl('https://regressapi.bluebird.id/token/auth')
+authRequest.setRestRequestMethod('POST')
+authRequest.setHttpHeaderProperties([
+	new TestObjectProperty("Content-Type", ConditionType.EQUALS, "application/json")
+])
+String body = '''{
+	"clientid": "https://regressapi.bluebird.id",
+	"response_type": "id_token",
+	"scope": "openid",
+	"user_id": "superjkt",
+	"user_secret": "superjkt"
+}'''
+authRequest.setBodyContent(new HttpTextBodyContent(body, "UTF-8", "application/json"))
 
-token = TransactionalManager.getBBDAuthToken()
-job_id = TransactionalManager.getOrderID()
+ResponseObject authResp = WS.sendRequest(authRequest)
+if (WS.getResponseStatusCode(authResp) != 200) {
+	KeywordUtil.markFailedAndStop("❌ Gagal mendapatkan BBD Token. Status Code: " + WS.getResponseStatusCode(authResp))
+}
 
-order_status = null
-timeout = new Date().getTime() + (16000 * (GlobalVariable.globalLoading ?: 1))
-//retry_count = 0 //0 for First Timeout Order and 1 for Second Timeout Order
+def parsedResp = new JsonSlurper().parseText(authResp.getResponseBodyContent())
+String token = parsedResp.id_token
+if (!token) {
+	KeywordUtil.markFailedAndStop("❌ id_token tidak ditemukan di response.")
+}
 
-while(order_status != 2 && new Date().getTime() < timeout) {
-	WS.delay(1)
-	order_detail = WS.sendRequest(findTestObject('Object Repository/Simulator/Order Detail (input - token, order_id)', [('token') : token, ('order_id'): job_id]))
-	order_status = WS.getElementPropertyValue(order_detail, 'status')
-	WS.comment("Order status: $order_status")
-	if (WS.getResponseStatusCode(order_detail) != 200) {
-		KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(order_detail))
+GlobalVariable.bbdAuthToken = token
+WS.comment("✅ BBD Token berhasil diambil dan disimpan.")
+
+// Ambil Job ID dari TransactionalManager
+
+String job_id = TransactionalManager.getOrderID()
+if (!job_id || job_id.toString().isEmpty()) {
+	KeywordUtil.markFailedAndStop("❌ Job ID kosong.")
+}
+
+long timeoutLimit = new Date().getTime() + 120000
+String status = null
+
+WS.comment("🔄 Cek status order ${job_id}...")
+
+while (new Date().getTime() < timeoutLimit) {
+	WS.delay(5)
+
+	ResponseObject orderDetailResp = WS.sendRequest(findTestObject(
+		'Object Repository/Simulator/Order Detail (input - token, order_id)',
+		[('token') : token, ('order_id') : job_id]
+	))
+
+	int statusCode = WS.getResponseStatusCode(orderDetailResp)
+	if (statusCode != 200) {
+		KeywordUtil.markWarning("❌ Status code bukan 200: ${statusCode}")
+		continue
+	}
+
+	status = WS.getElementPropertyValue(orderDetailResp, 'status')
+	WS.comment("ℹ️ Status sekarang: ${status}")
+
+	if (status == '-4') {
+		WS.comment("⌛ Order timeout. Lanjut ke Direct Assign.")
+		WS.callTestCase(findTestCase('Test Cases/Simulator/Direct Assign'), [:], FailureHandling.STOP_ON_FAILURE)
+		break
+	} else if (status == '2') {
+		WS.comment("✅ Order sudah dapat driver.")
+		break
+	} else if (status == '6' || status == '1') {
+		WS.comment("⏳ Order masih dalam proses.")
+		// lanjut loop
 	} else {
-		try {
-			order_status = WS.getElementPropertyValue(order_detail, 'status')
-			WS.comment("Order status: $order_status")		
-			if (order_status == 1) { //On Bidding
-				WS.comment('continue')
-//			} else if (order_status == 2 || order_status == 3) { //En Route & On Trip
-			} else if (order_status == 2) { //En Route 
-				break
-			} else if (order_status == -4){ //Time Out
-				WS.callTestCase(findTestCase('Test Cases/Simulator/Direct Assign'), [:], FailureHandling.STOP_ON_FAILURE)
-				WS.comment('continue')
-			} else if (order_status == 6){ //On Assign
-				WS.comment('continue')
-			} else {
-				KeywordUtil.markErrorAndStop("Order status is: $order_status")
-				break
-			}
-		} catch (Exception error) {
-			KeywordUtil.markWarning("\n\nERROR: $error\n")
-		}
+		KeywordUtil.markWarning("❗ Order dalam status tidak dikenali: ${status}")
+		break
 	}
 }
 
-Mobile.delay(3)
-order_detail = WS.sendRequest(findTestObject('Object Repository/Simulator/Order Detail (input - token, order_id)', [('token') : token, ('order_id'): job_id]))
-if (WS.getResponseStatusCode(order_detail) != 200) {
-	KeywordUtil.markErrorAndStop("Status code is not 200 as expected. It is " + WS.getResponseStatusCode(order_detail))
-} else {
-	order_status = WS.getElementPropertyValue(order_detail, 'status')
-	WS.comment("Order status: $order_status")
-}
-
-//if (order_status != 2 && order_status != 3) {	
-if (order_status != 2) {
-	WS.comment("Order status: $order_status")
-	KeywordUtil.markError("Order Status is not as expected. It is " + order_status)
+if (status != '2') {
+	KeywordUtil.markFailed("❌ Order belum dapat driver. Final status: ${status}")
 }

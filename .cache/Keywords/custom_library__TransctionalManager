@@ -1,5 +1,5 @@
 {
-  "keywordFileContentHash": "717B05790A0563395015384BFB4F8F15",
+  "keywordFileContentHash": "6C5974E2BD0AD8ACDB17D38942D47295",
   "keywordClasses": [
     {
       "name": "custom_library.TransactionalManager",
@@ -84,7 +84,7 @@
           "name": "setMyBBTestcaseName",
           "parameters": [
             {
-              "name": "testcase_name",
+              "name": "name",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -108,7 +108,7 @@
           "name": "setMyBBFolderCaseName",
           "parameters": [
             {
-              "name": "foldercase_name",
+              "name": "name",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -132,7 +132,7 @@
           "name": "setMyBBTestSuitesName",
           "parameters": [
             {
-              "name": "testsuites_name",
+              "name": "name",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -151,7 +151,7 @@
           "name": "setMyBBPaymentStatusHistory",
           "parameters": [
             {
-              "name": "payment_status",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -170,7 +170,7 @@
           "name": "setMyBBPaymentTypeHistory",
           "parameters": [
             {
-              "name": "payment_type",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -189,7 +189,7 @@
           "name": "setMyBBServiceTypeHistory",
           "parameters": [
             {
-              "name": "service_type",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -208,7 +208,7 @@
           "name": "setIotFareInfo",
           "parameters": [
             {
-              "name": "fare_info",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -227,7 +227,7 @@
           "name": "setIotExtraFareInfo",
           "parameters": [
             {
-              "name": "extra_fare_info",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -265,7 +265,7 @@
           "name": "setStatusBeforeLoading",
           "parameters": [
             {
-              "name": "order_status",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -284,7 +284,7 @@
           "name": "setExpectedAndroidDriver",
           "parameters": [
             {
-              "name": "android_driver",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -303,7 +303,7 @@
           "name": "setExpectedToastMessageEng",
           "parameters": [
             {
-              "name": "expected_toast_message",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -322,7 +322,7 @@
           "name": "setExpectedToastMessageIdn",
           "parameters": [
             {
-              "name": "expected_toast_message",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -457,7 +457,7 @@
           "name": "setBBDAuthToken",
           "parameters": [
             {
-              "name": "token",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -476,7 +476,7 @@
           "name": "setCPAuthToken",
           "parameters": [
             {
-              "name": "token",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -495,7 +495,7 @@
           "name": "setBBDSimulatorSession",
           "parameters": [
             {
-              "name": "session",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -511,67 +511,25 @@
           "javadoc": ""
         },
         {
-          "name": "setBBDSimulatorNomorLambung",
-          "parameters": [
-            {
-              "name": "nomor_lambung",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "name": "getBBDSimulatorNomorLambung",
+          "parameters": [],
           "javadoc": ""
         },
         {
-          "name": "setBBDSimulatorDriverID",
-          "parameters": [
-            {
-              "name": "driver_id",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "name": "getBBDSimulatorDriverID",
+          "parameters": [],
           "javadoc": ""
         },
         {
-          "name": "setBBDSimulatorVehicleID",
-          "parameters": [
-            {
-              "name": "vehicle_id",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "name": "getBBDSimulatorVehicleID",
+          "parameters": [],
           "javadoc": ""
         },
         {
           "name": "setBBDSimulatorDriverPass",
           "parameters": [
             {
-              "name": "driver_pass",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -590,7 +548,7 @@
           "name": "setBBDSimulatorDeviceID",
           "parameters": [
             {
-              "name": "device_id",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -609,7 +567,7 @@
           "name": "setOrderID",
           "parameters": [
             {
-              "name": "order_id",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -626,28 +584,14 @@
         },
         {
           "name": "getOrderID",
-          "parameters": [
-            {
-              "name": "order_id",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "parameters": [],
           "javadoc": ""
         },
         {
           "name": "setPriceBeforePromo",
           "parameters": [
             {
-              "name": "price_before_promo",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -666,7 +610,7 @@
           "name": "setPriceAfterPromo",
           "parameters": [
             {
-              "name": "price_after_promo",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -682,10 +626,10 @@
           "javadoc": ""
         },
         {
-          "name": "SetEvoucherBalance",
+          "name": "setEvoucherBalance",
           "parameters": [
             {
-              "name": "evoucher_balance",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -701,10 +645,10 @@
           "javadoc": ""
         },
         {
-          "name": "SetAmountTrips",
+          "name": "setAmountTrips",
           "parameters": [
             {
-              "name": "amount_trips",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -720,10 +664,10 @@
           "javadoc": ""
         },
         {
-          "name": "SetMyBBToken",
+          "name": "setMyBBToken",
           "parameters": [
             {
-              "name": "token",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -739,10 +683,15 @@
           "javadoc": ""
         },
         {
-          "name": "SetHandlingFeeActualFare",
+          "name": "getBBDAuthToken",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "setHandlingFeeActualFare",
           "parameters": [
             {
-              "name": "actual_fare",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -758,10 +707,10 @@
           "javadoc": ""
         },
         {
-          "name": "SetHandlingFee",
+          "name": "setHandlingFee",
           "parameters": [
             {
-              "name": "handling_fee",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -777,10 +726,10 @@
           "javadoc": ""
         },
         {
-          "name": "HandlingFeeTotal",
+          "name": "setHandlingFeeTotal",
           "parameters": [
             {
-              "name": "total",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -796,10 +745,10 @@
           "javadoc": ""
         },
         {
-          "name": "SetOrderIDMybb",
+          "name": "setOrderIDMybb",
           "parameters": [
             {
-              "name": "order_id_mybb",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -816,9 +765,14 @@
         },
         {
           "name": "getOrderIDMybb",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "setIotState",
           "parameters": [
             {
-              "name": "order_id_mybb",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -834,48 +788,15 @@
           "javadoc": ""
         },
         {
-          "name": "SetIotState",
-          "parameters": [
-            {
-              "name": "state_iot",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "name": "getIotState",
+          "parameters": [],
           "javadoc": ""
         },
         {
-          "name": "SetgetIotState",
+          "name": "setPairingDriver",
           "parameters": [
             {
-              "name": "state_iot",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
-          "javadoc": ""
-        },
-        {
-          "name": "SetPairingDriver",
-          "parameters": [
-            {
-              "name": "pairing_driver",
+              "name": "value",
               "initialExpression": "",
               "type": {
                 "fullClassName": "java.lang.String",
@@ -892,21 +813,7 @@
         },
         {
           "name": "getPairingDriver",
-          "parameters": [
-            {
-              "name": "pairing_driver",
-              "initialExpression": "",
-              "type": {
-                "fullClassName": "java.lang.String",
-                "unresolvedClassName": "String",
-                "isArray": false,
-                "isGnericsPlaceHolder": false,
-                "hasImmutableClassName": false,
-                "genericsTypes": [],
-                "errorOnParsing": false
-              }
-            }
-          ],
+          "parameters": [],
           "javadoc": ""
         },
         {

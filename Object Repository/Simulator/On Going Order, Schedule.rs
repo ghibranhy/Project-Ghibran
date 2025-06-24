@@ -17,7 +17,7 @@
       <matchCondition>equals</matchCondition>
       <name>token</name>
       <type>Main</type>
-      <value>042b1c7945b90d0dba9c54cb9d49a9917ed9f110d4b268315481ec76cccf3046</value>
+      <value>${token}</value>
       <webElementGuid>2c2ab3e7-fc8c-47ef-89f9-a7df2f30c229</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>
@@ -25,7 +25,7 @@
       <matchCondition>equals</matchCondition>
       <name>App-Version</name>
       <type>Main</type>
-      <value>6.18.0-regress</value>
+      <value>6.15.0</value>
       <webElementGuid>d79c277f-0f8b-4750-a377-30611b0e97eb</webElementGuid>
    </httpHeaderProperties>
    <katalonVersion>8.4.1</katalonVersion>
