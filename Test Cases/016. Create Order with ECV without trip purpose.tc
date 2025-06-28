@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>015. Add Payment AMEX</name>
+   <name>016. Create Order with ECV without trip purpose</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>4babb816-59d9-4af9-8da2-6572a3d78314</testCaseGuid>
+   <testCaseGuid>bab1e3a7-401e-45c4-bb62-e083936671c4</testCaseGuid>
 </TestCaseEntity>

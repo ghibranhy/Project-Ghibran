@@ -15,7 +15,7 @@
       <guid>4f314ab1-05fc-405b-acac-ddca301de27a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/017. Order with payment visa</testCaseId>
+      <testCaseId>Test Cases/020. Create completed order with payment Visa</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
@@ -71,21 +71,21 @@
       <guid>40028b54-b09b-49db-862f-7d25100d993f</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/013. Add Payment Visa</testCaseId>
+      <testCaseId>Test Cases/009. Add Payment Visa</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>d9fb7aaf-ebaa-494b-8296-7ed7c0ae89b1</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/014. Add Payment Mastercard</testCaseId>
+      <testCaseId>Test Cases/010. Add Payment Mastercard</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>e7d7153c-8ba9-4b72-9f88-74099ee5eee6</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/015. Add Payment AMEX</testCaseId>
+      <testCaseId>Test Cases/011. Add Payment AMEX</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>

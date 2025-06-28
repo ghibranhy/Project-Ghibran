@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>027. Order with payment ECV without trip purpose</name>
+   <name>009. Add Payment Visa</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>bab1e3a7-401e-45c4-bb62-e083936671c4</testCaseGuid>
+   <testCaseGuid>a9f1be94-eb63-4cf8-99aa-03cfe2e43957</testCaseGuid>
 </TestCaseEntity>

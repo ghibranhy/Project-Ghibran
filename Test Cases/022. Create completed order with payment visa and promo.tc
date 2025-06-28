@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>017. Order with payment visa</name>
+   <name>022. Create completed order with payment visa and promo</name>
    <tag></tag>
    <comment></comment>
-   <testCaseGuid>a80e141b-9074-45fb-bc8c-3322ed3622b7</testCaseGuid>
+   <testCaseGuid>4231cf5a-dce6-4159-bb0d-54ebc53df2f0</testCaseGuid>
 </TestCaseEntity>
