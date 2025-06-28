@@ -1,10 +1,10 @@
 {
-  "keywordFileContentHash": "7C93071A3E4711310AEA8A10ACA86CB1",
+  "keywordFileContentHash": "D3714E6C3077FF61BE569EC62366DD3B",
   "keywordClasses": [
     {
       "name": "custom_library.SimulatorDataManager",
       "keywordMethods": []
     }
   ],
-  "javadocParsed": false
+  "javadocParsed": true
 }

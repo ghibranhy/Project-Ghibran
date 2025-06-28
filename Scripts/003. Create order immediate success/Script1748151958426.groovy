@@ -26,7 +26,7 @@ def waitForReadyAndTap(TestObject to, int timeout = 5) {
 	Mobile.tap(to, timeout)
 }
 
-Mobile.startExistingApplication('com.seatech.bluebird.regress')
+//Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
 // Homepage
 waitForReadyAndTap(findTestObject('Object Repository/Delivery/1. Home Page/button.Home'))

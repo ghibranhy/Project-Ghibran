@@ -151,11 +151,36 @@ try {
 CustomRequestObject req = new CustomRequestObject()
 ResponseObject resp = req.buildApiRequest(body)
 
+	WS.comment("actualStatusCode: "+resp.getStatusCode().toString())
 	if (resp.getStatusCode() != 200) {
-		KeywordUtil.markFailed("❌ Assign request failed. Status: ${resp.getStatusCode()}")
-	} else {
-		KeywordUtil.logInfo("✅ Assign successful. Status: ${resp.getStatusCode()}")
+	KeywordUtil.markWarning("⚠️ Assign gagal. Coba cek ulang status ordernya.")
+
+	// Ambil order ID & token
+	order_id = TransactionalManager.getOrderID()
+	check_token = TransactionalManager.getBBDAuthToken()
+
+	// Coba cek status order
+	ResponseObject orderStatusResp = WS.sendRequest(findTestObject(
+		'Object Repository/Simulator/Order Detail (input - token, order_id)',
+		[('token'): check_token, ('order_id'): order_id]
+	))
+
+	int statusCode = WS.getResponseStatusCode(orderStatusResp)
+	if (statusCode != 200) {
+		KeywordUtil.markFailed("❌ Gagal cek status order setelah assign gagal. Status Code: ${statusCode}")
+		return
 	}
+
+	String currentStatus = WS.getElementPropertyValue(orderStatusResp, 'status')
+	KeywordUtil.logInfo("📌 Status order setelah assign gagal: $currentStatus")
+
+	if (currentStatus == '2') {
+		KeywordUtil.markWarning("✅ Order sebenarnya sudah dapat driver walau assign gagal.")
+	} else {
+		KeywordUtil.markFailed("❌ Assign gagal dan order belum dapat driver. Status: ${currentStatus}")
+	}
+}
+
 
 } catch (Exception e) {
 	KeywordUtil.markFailed("❗ Uncaught Error: $e")

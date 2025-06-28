@@ -26,7 +26,7 @@
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'10'</initValue>
+      <initValue>10</initValue>
       <name>globalLoading</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
@@ -37,26 +37,16 @@
    <GlobalVariableEntity>
       <description></description>
       <initValue>''</initValue>
-      <name>BBDSimulatorVehicleID</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>BBDSimulatorNomorLambung</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
-      <name>BBDSimulatorDriverID</name>
-   </GlobalVariableEntity>
-   <GlobalVariableEntity>
-      <description></description>
-      <initValue>''</initValue>
       <name>simulatorResource</name>
    </GlobalVariableEntity>
    <GlobalVariableEntity>
       <description></description>
-      <initValue>'3'</initValue>
+      <initValue>3</initValue>
       <name>globalTimeout</name>
+   </GlobalVariableEntity>
+   <GlobalVariableEntity>
+      <description></description>
+      <initValue>'https://regressapi.bluebird.id'</initValue>
+      <name>envBbd1</name>
    </GlobalVariableEntity>
 </GlobalVariableEntities>

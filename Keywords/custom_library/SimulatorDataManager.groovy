@@ -69,10 +69,6 @@ public class SimulatorDataManager {
 				TransactionalManager.setBBDSimulatorDriverPass(driver_pass)
 				TransactionalManager.setBBDSimulatorDeviceID(device_id)
 				
-				// Set ke GlobalVariable
-				GlobalVariable.BBDSimulatorNomorLambung = nomor_lambung
-				GlobalVariable.BBDSimulatorDriverID = driver_id
-				GlobalVariable.BBDSimulatorVehicleID = vehicle_id
 			} catch (Exception error) {
 				KeywordUtil.markErrorAndStop("\n\nERROR: $error\n")
 			}

@@ -17,7 +17,7 @@
       <matchCondition>equals</matchCondition>
       <name>token</name>
       <type>Main</type>
-      <value>15a68478dc9359c930a75ab407c813aa87ce528094916a04404369e8f2ee52b1</value>
+      <value>${token}</value>
       <webElementGuid>2c2ab3e7-fc8c-47ef-89f9-a7df2f30c229</webElementGuid>
    </httpHeaderProperties>
    <httpHeaderProperties>

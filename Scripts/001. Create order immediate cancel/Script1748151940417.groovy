@@ -18,6 +18,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import custom_library.ErrorHandlingManager
 
+Mobile.startExistingApplication('com.seatech.bluebird.regress')
+
 //Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
 // Helper function: tunggu elemen hadir & enabled, lalu tap
@@ -26,7 +28,6 @@ def waitForReadyAndTap(TestObject to, int timeout = 5) {
 	Mobile.waitForElementAttributeValue(to, 'enabled', 'true', timeout)
 	Mobile.tap(to, timeout)
 }
-
 
 // Homepage
 waitForReadyAndTap(findTestObject('Object Repository/Delivery/1. Home Page/button.Home'), 3)
@@ -84,3 +85,4 @@ Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/6. On Tr
 Mobile.tap(findTestObject('Object Repository/Delivery/6. On Trip/button.CancelCreate'), 3)
 
 Mobile.takeScreenshot()
+

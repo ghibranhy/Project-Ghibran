@@ -12,21 +12,21 @@
    <rerunImmediately>false</rerunImmediately>
    <testSuiteGuid>8d8b4598-26d1-46e8-a410-38bc875fc30a</testSuiteGuid>
    <testCaseLink>
-      <guid>1056be24-df99-413c-9eea-96121235c456</guid>
+      <guid>4f314ab1-05fc-405b-acac-ddca301de27a</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>true</isRun>
-      <testCaseId>Test Cases/CheckSimulator</testCaseId>
+      <isRun>false</isRun>
+      <testCaseId>Test Cases/017. Order with payment visa</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
       <guid>0b320c88-3b0a-4823-9d27-ded8a613b5cf</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
-      <testCaseId>Test Cases/Login</testCaseId>
+      <testCaseId>Test Cases/000. Login</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>2539e8e1-63f7-422d-ab69-fa6b38658c3a</guid>
+      <guid>c4ca3bba-cb0f-4002-9845-bc63b480904a</guid>
       <isReuseDriver>false</isReuseDriver>
       <isRun>false</isRun>
       <testCaseId>Test Cases/001. Create order immediate cancel</testCaseId>
@@ -89,10 +89,10 @@
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>
-      <guid>4f314ab1-05fc-405b-acac-ddca301de27a</guid>
+      <guid>1056be24-df99-413c-9eea-96121235c456</guid>
       <isReuseDriver>false</isReuseDriver>
-      <isRun>false</isRun>
-      <testCaseId>Test Cases/017. Order with payment visa</testCaseId>
+      <isRun>true</isRun>
+      <testCaseId>Test Cases/CheckSimulator</testCaseId>
       <usingDataBindingAtTestSuiteLevel>true</usingDataBindingAtTestSuiteLevel>
    </testCaseLink>
    <testCaseLink>

@@ -17,40 +17,44 @@ import custom_library.TransactionalManager
 import custom_library.SimulatorDataManager
 import internal.GlobalVariable
 
-// =============================================
-// 🔐 Ambil token auth dari endpoint BBD
-// =============================================
-
-RequestObject authRequest = new RequestObject()
-authRequest.setRestUrl('https://regressapi.bluebird.id/token/auth')
-authRequest.setRestRequestMethod('POST')
-authRequest.setHttpHeaderProperties([
-	new TestObjectProperty("Content-Type", ConditionType.EQUALS, "application/json")
-])
-String body = '''{
-	"clientid": "https://regressapi.bluebird.id",
-	"response_type": "id_token",
-	"scope": "openid",
-	"user_id": "superjkt",
-	"user_secret": "superjkt"
-}'''
-authRequest.setBodyContent(new HttpTextBodyContent(body, "UTF-8", "application/json"))
-
-ResponseObject authResp = WS.sendRequest(authRequest)
-if (WS.getResponseStatusCode(authResp) != 200) {
-	KeywordUtil.markFailedAndStop("❌ Gagal mendapatkan BBD Token. Status Code: " + WS.getResponseStatusCode(authResp))
-}
-
-def parsedResp = new JsonSlurper().parseText(authResp.getResponseBodyContent())
-String token = parsedResp.id_token
-if (!token) {
-	KeywordUtil.markFailedAndStop("❌ id_token tidak ditemukan di response.")
-}
-
-GlobalVariable.bbdAuthToken = token
-WS.comment("✅ BBD Token berhasil diambil dan disimpan.")
+//// =============================================
+//// 🔐 Ambil token auth dari endpoint BBD
+//// =============================================
+//
+//RequestObject authRequest = new RequestObject()
+//authRequest.setRestUrl('https://regressapi.bluebird.id/token/auth')
+//authRequest.setRestRequestMethod('POST')
+//authRequest.setHttpHeaderProperties([
+//	new TestObjectProperty("Content-Type", ConditionType.EQUALS, "application/json")
+//])
+//String body = '''{
+//	"clientid": "https://regressapi.bluebird.id",
+//	"response_type": "id_token",
+//	"scope": "openid",
+//	"user_id": "superjkt",
+//	"user_secret": "superjkt"
+//}'''
+//authRequest.setBodyContent(new HttpTextBodyContent(body, "UTF-8", "application/json"))
+//
+//ResponseObject authResp = WS.sendRequest(authRequest)
+//if (WS.getResponseStatusCode(authResp) != 200) {
+//	KeywordUtil.markFailedAndStop("❌ Gagal mendapatkan BBD Token. Status Code: " + WS.getResponseStatusCode(authResp))
+//}
+//
+//def parsedResp = new JsonSlurper().parseText(authResp.getResponseBodyContent())
+//String token = parsedResp.id_token
+//if (!token) {
+//	KeywordUtil.markFailedAndStop("❌ id_token tidak ditemukan di response.")
+//}
+//
+//GlobalVariable.bbdAuthToken = token
+//WS.comment("✅ BBD Token berhasil diambil dan disimpan.")
 
 // Ambil Job ID dari TransactionalManager
+
+TransactionalManager.getBBDSimulatorDriverID()
+TransactionalManager.getBBDSimulatorVehicleID()
+TransactionalManager.getBBDSimulatorNomorLambung()
 
 String job_id = TransactionalManager.getOrderID()
 if (!job_id || job_id.toString().isEmpty()) {
@@ -64,7 +68,7 @@ WS.comment("🔄 Cek status order ${job_id}...")
 
 while (new Date().getTime() < timeoutLimit) {
 	WS.delay(5)
-
+	String token = TransactionalManager.getBBDAuthToken()
 	ResponseObject orderDetailResp = WS.sendRequest(findTestObject(
 		'Object Repository/Simulator/Order Detail (input - token, order_id)',
 		[('token') : token, ('order_id') : job_id]
@@ -82,7 +86,6 @@ while (new Date().getTime() < timeoutLimit) {
 	if (status == '-4') {
 		WS.comment("⌛ Order timeout. Lanjut ke Direct Assign.")
 		WS.callTestCase(findTestCase('Test Cases/Simulator/Direct Assign'), [:], FailureHandling.STOP_ON_FAILURE)
-		break
 	} else if (status == '2') {
 		WS.comment("✅ Order sudah dapat driver.")
 		break

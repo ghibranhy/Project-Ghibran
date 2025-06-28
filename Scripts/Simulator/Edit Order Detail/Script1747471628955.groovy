@@ -7,9 +7,44 @@ import com.kms.katalon.core.testobject.TestObjectProperty
 import com.kms.katalon.core.testobject.impl.HttpTextBodyContent
 import com.kms.katalon.core.util.KeywordUtil
 import com.kms.katalon.core.webservice.keyword.WSBuiltInKeywords as WS
-
+import groovy.json.JsonSlurper
+import com.kms.katalon.core.testobject.impl.HttpTextBodyContent
 import custom_library.TransactionalManager
 import internal.GlobalVariable
+
+// =============================================
+// 🔐 Ambil token auth dari endpoint BBD
+// =============================================
+
+RequestObject authRequest = new RequestObject()
+authRequest.setRestUrl('https://regressapi.bluebird.id/token/auth')
+authRequest.setRestRequestMethod('POST')
+authRequest.setHttpHeaderProperties([
+	new TestObjectProperty("Content-Type", ConditionType.EQUALS, "application/json")
+])
+String body = '''{
+	"clientid": "https://regressapi.bluebird.id",
+	"response_type": "id_token",
+	"scope": "openid",
+	"user_id": "superjkt",
+	"user_secret": "superjkt"
+}'''
+authRequest.setBodyContent(new HttpTextBodyContent(body, "UTF-8", "application/json"))
+
+ResponseObject authResp = WS.sendRequest(authRequest)
+if (WS.getResponseStatusCode(authResp) != 200) {
+	KeywordUtil.markFailedAndStop("❌ Gagal mendapatkan BBD Token. Status Code: " + WS.getResponseStatusCode(authResp))
+}
+
+def parsedResp = new JsonSlurper().parseText(authResp.getResponseBodyContent())
+String token = parsedResp.id_token
+if (!token) {
+	KeywordUtil.markFailedAndStop("❌ id_token tidak ditemukan di response.")
+}
+
+GlobalVariable.bbdAuthToken = token
+WS.comment("✅ BBD Token berhasil diambil dan disimpan.")
+
 
 ///**
 //* the class below is modified from the source:
@@ -58,6 +93,7 @@ Date date_object =  new Date((final_time_pickup))
 def clean_date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").format(date_object)
 WS.comment("clean_date: $clean_date")
 
+WS.comment("SESSION ID from TransactionalManager: " + session_id)
 edited_resp_body = original_resp_body.replace('"instruction":"",', '"instruction":"trafficsimulator:'+session_id+'",')
 final_resp_body = edited_resp_body.replace('"time_pickup":"'+original_time_pickup+'",', '"time_pickup":"'+clean_date+'.000Z",')
 

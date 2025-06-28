@@ -39,7 +39,7 @@ Mobile.setText(findTestObject('Object Repository/Login Page/editText.InputPhoneN
 Mobile.tap(findTestObject('Object Repository/Login Page/button.Login'), 3)
 
 Mobile.takeScreenshot()
-
+KeywordUtil.markPassed("User Berhasil Login")
  
 
 

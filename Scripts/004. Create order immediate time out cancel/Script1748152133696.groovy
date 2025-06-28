@@ -35,7 +35,6 @@ for (int attempt = 1; attempt <= maxAttempts; attempt++) {
 	// Cek apakah tombol Cancel Timeout sudah muncul
 	if (Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/6. On Trip/button.CancelTimeout'), 5, FailureHandling.OPTIONAL)) {
 		timeoutButtonVisible = true
-		break
 	}
 
 	// Log untuk debug

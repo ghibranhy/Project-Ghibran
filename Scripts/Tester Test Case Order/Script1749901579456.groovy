@@ -72,7 +72,7 @@ Mobile.startExistingApplication('com.seatech.bluebird.regress')
 //waitForReadyAndTap(findTestObject('Object Repository/Delivery/4. Recepient Detail/button.Continue.Recipient'))
 //Mobile.delay(5) 
 //
-//// Select Payment
+//////Select Payment
 ////Mobile.tapAtPosition(363, 1830)
 ////Mobile.delay(2)
 ////waitForReadyAndTap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/select.PaymentVisa'))
@@ -80,73 +80,27 @@ Mobile.startExistingApplication('com.seatech.bluebird.regress')
 //
 //// Create Order
 //Mobile.tapAtPosition(769, 2124)
-//Mobile.delay (20)
-//
-//// Helper: versi string path
-////def waitForReadyAndTap(String objectPath, int timeout = 5) {
-////	def testObject = findTestObject(objectPath)
-////	Mobile.waitForElementPresent(testObject, timeout)
-////	Mobile.waitForElementAttributeValue(testObject, 'enabled', 'true', timeout)
-////	Mobile.tap(testObject, timeout)
-////}
-////
-////int maxRetry = 5
-////int retry = 0
-////boolean timeoutStillExists = true
-////
-////while (retry < maxRetry && timeoutStillExists) {
-////    println(">>> Loop ke-${retry + 1}: Back & buka ulang Active Order")
-////
-////    // Step 1: Back dari halaman Finding
-////    waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.BackFinding')
-////
-////    // Step 2: Klik Active Order dari Home
-////    waitForReadyAndTap('Object Repository/Delivery/1. Home Page/Select.ActiveOrderHomePage')
-////
-////    // Step 3: Cek apakah muncul tombol Timeout
-////    timeoutStillExists = Mobile.waitForElementPresent(
-////        findTestObject('Object Repository/Delivery/6. On Trip/button.CancelTimeout'),
-////        5,
-////        FailureHandling.OPTIONAL
-////    )
-////
-////    if (timeoutStillExists) {
-////        println("⚠️ Timeout muncul, klik Try Again")
-////
-////        // Klik tombol Try Again
-////        waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.TryAgainTimeout')
-////
-////        // Kembali dan ulangi proses buka Active Order
-////        waitForReadyAndTap('Object Repository/Delivery/6. On Trip/button.BackFinding')
-////        waitForReadyAndTap('Object Repository/Delivery/1. Home Page/Select.ActiveOrderHomePage')
-////
-////        retry++
-////    } else {
-////        println("✅ Timeout tidak muncul. Finding dianggap berhasil.")
-////    }
-////}
-////
-////if (timeoutStillExists) {
-////    KeywordUtil.markFailed("❌ Timeout masih muncul setelah ${maxRetry} kali refresh.")
-////} else {
-////    println("✅ Lanjut ke step berikutnya.")
-////}
-//
+//Mobile.delay (10)
+
+
 String test_case_name = TransactionalManager.getMyBBTestCaseName()?.toLowerCase() ?: ''
 String folder_case_name = TransactionalManager.getMyBBFolderCaseName()?.toLowerCase() ?: ''
 String vehicle_type
 
-if (test_case_name.contains('Order'.toLowerCase())) {
-	vehicle_type = 'Delivery BB'
-}
+//if (test_case_name.contains('Order'.toLowerCase())) {
+//	vehicle_type = 'Delivery BB'
+//}
+vehicle_type = vehicle_type ?: 'Delivery BB' // default fallback
 
 WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Get Token'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
 
 WS.callTestCase(findTestCase('Test Cases/Simulator/Get Order ID'), ['vehicle_type':vehicle_type,'test_case_name':test_case_name], FailureHandling.STOP_ON_FAILURE)
 
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Edit Order Detail'), [:], FailureHandling.STOP_ON_FAILURE)
+WS.callTestCase(findTestCase('Test Cases/Simulator/Edit Order Detail'), [:], FailureHandling.STOP_ON_FAILURE)
 
 WS.callTestCase(findTestCase('Test Cases/Simulator/Handle Order to Simulator'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
+
+//waitForReadyAndTap(findTestObject('Object Repository/Delivery/6. On Trip/button.TryAgainTimeout'))
 
 WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status on trip'), [:], FailureHandling.STOP_ON_FAILURE)
 
@@ -154,7 +108,9 @@ WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Complete Order'), [:], F
 
 WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status complete'), [:], FailureHandling.STOP_ON_FAILURE)
 
-Mobile.callTestCase(findTestCase('Test Cases/Simulator/Baru/Continue MyBB' + ' ' + vehicle_type), [:], FailureHandling.STOP_ON_FAILURE)
+
+
+
 
 
 
