@@ -4,5 +4,6 @@
    <name>Tester Test Case Order</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>fab7b7c4-ebb1-4971-a1f8-10ce832d8ada</testCaseGuid>
 </TestCaseEntity>
