@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <WebServiceRequestEntity>
    <description></description>
-   <name>Get Order Id</name>
+   <name>Get List Order</name>
    <tag></tag>
-   <elementGuidId>89eb12bd-cc38-4a48-8a01-63be3c2e8633</elementGuidId>
+   <elementGuidId>e99782e9-e4ec-47c7-8ed3-28212ced4ada</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>true</autoUpdateContent>
@@ -32,7 +32,7 @@
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
    <restRequestMethod>GET</restRequestMethod>
-   <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/me/orders/bluebird/${order_id}</restUrl>
+   <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/me/orders/</restUrl>
    <serviceType>RESTful</serviceType>
    <soapBody></soapBody>
    <soapHeader></soapHeader>

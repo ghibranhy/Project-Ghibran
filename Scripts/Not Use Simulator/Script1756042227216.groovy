@@ -77,7 +77,7 @@ Mobile.startExistingApplication('com.seatech.bluebird.regress')
 ////Mobile.delay(2)
 ////waitForReadyAndTap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/select.PaymentVisa'))
 ////Mobile.delay(3)
-
+//
 // Create Order
 //Mobile.tapAtPosition(769, 2124)
 //Mobile.delay (10)
@@ -87,32 +87,33 @@ String test_case_name = TransactionalManager.getMyBBTestCaseName()?.toLowerCase(
 String folder_case_name = TransactionalManager.getMyBBFolderCaseName()?.toLowerCase() ?: ''
 String vehicle_type
 
-//if (test_case_name.contains('Order'.toLowerCase())) {
-//	vehicle_type = 'Delivery BB'
-//}
 vehicle_type = vehicle_type ?: 'Delivery BB' // default fallback
 
-WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Get Token'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
+// --- Step 1: Get Token ---
+WS.callTestCase(
+    findTestCase('Test Cases/Simulator/Baru/Get Token'),
+    ['vehicle_type': vehicle_type],
+    FailureHandling.STOP_ON_FAILURE
+)
 
-WS.callTestCase(findTestCase('Test Cases/Simulator/Get Order ID'), ['vehicle_type':vehicle_type,'test_case_name':test_case_name], FailureHandling.STOP_ON_FAILURE)
 
-WS.callTestCase(findTestCase('Test Cases/Simulator/Handle Order to Simulator - Copy'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
+// 🔹 Ambil OrderID terbaru setelah create order via mobile
+WS.callTestCase(
+	findTestCase('Test Cases/Simulator/Baru/Get Latest Order'), 
+	[:], 
+	FailureHandling.STOP_ON_FAILURE
+)
 
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Edit Order Detail'), [:], FailureHandling.STOP_ON_FAILURE)
-//
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Handle Order to Simulator'), ['vehicle_type':vehicle_type], FailureHandling.STOP_ON_FAILURE)
-//
-////waitForReadyAndTap(findTestObject('Object Repository/Delivery/6. On Trip/button.TryAgainTimeout'))
-//
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status on trip'), [:], FailureHandling.STOP_ON_FAILURE)
-//
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Complete Order'), [:], FailureHandling.STOP_ON_FAILURE)
-//
-//WS.callTestCase(findTestCase('Test Cases/Simulator/Baru/Wait for status complete'), [:], FailureHandling.STOP_ON_FAILURE)
-//
-//
-//
-//
-//
-//
-//
+// 🔹 Tunggu sampai order mencapai status 8
+WS.callTestCase(
+	findTestCase('Test Cases/Simulator/Wait for status 8'), 
+	[:], 
+	FailureHandling.STOP_ON_FAILURE
+)
+
+
+
+
+
+
+

@@ -55,25 +55,53 @@ public class TransactionalManager {
 	static String getPairingDriver = null
 
 
-	@Keyword public static void setMyBBPasscode(String passcode) { MyBBPasscode = passcode }
-	@Keyword public static void setMyBBLanguage(String value) { MyBBLanguage = value }
-	@Keyword public static void setMyBBID(String value) { MyBBID = value }
-	@Keyword public static void setMyBBDateSchedule(String date_schedule) { MyBBDateSchedule = date_schedule }
+	@Keyword public static void setMyBBPasscode(String passcode) {
+		MyBBPasscode = passcode
+	}
+	@Keyword public static void setMyBBLanguage(String value) {
+		MyBBLanguage = value
+	}
+	@Keyword public static void setMyBBID(String value) {
+		MyBBID = value
+	}
+	@Keyword public static void setMyBBDateSchedule(String date_schedule) {
+		MyBBDateSchedule = date_schedule
+	}
 
-	@Keyword public static void setMyBBTestcaseName(String name) { MyBBTestCaseName = name }
-	@Keyword public static String getMyBBTestCaseName() { return MyBBTestCaseName }
+	@Keyword public static void setMyBBTestcaseName(String name) {
+		MyBBTestCaseName = name
+	}
+	@Keyword public static String getMyBBTestCaseName() {
+		return MyBBTestCaseName
+	}
 
-	@Keyword public static void setMyBBFolderCaseName(String name) { MyBBFolderCaseName = name }
-	@Keyword public static String getMyBBFolderCaseName() { return MyBBFolderCaseName }
+	@Keyword public static void setMyBBFolderCaseName(String name) {
+		MyBBFolderCaseName = name
+	}
+	@Keyword public static String getMyBBFolderCaseName() {
+		return MyBBFolderCaseName
+	}
 
-	@Keyword public static void setMyBBTestSuitesName(String name) { MyBBTestSuitesName = name }
+	@Keyword public static void setMyBBTestSuitesName(String name) {
+		MyBBTestSuitesName = name
+	}
 
-	@Keyword public static void setMyBBPaymentStatusHistory(String value) { MyBBPaymentStatusHistory = value }
-	@Keyword public static void setMyBBPaymentTypeHistory(String value) { MyBBPaymentTypeHistory = value }
-	@Keyword public static void setMyBBServiceTypeHistory(String value) { MyBBServiceTypeHistory = value }
+	@Keyword public static void setMyBBPaymentStatusHistory(String value) {
+		MyBBPaymentStatusHistory = value
+	}
+	@Keyword public static void setMyBBPaymentTypeHistory(String value) {
+		MyBBPaymentTypeHistory = value
+	}
+	@Keyword public static void setMyBBServiceTypeHistory(String value) {
+		MyBBServiceTypeHistory = value
+	}
 
-	@Keyword public static void setIotFareInfo(String value) { IotFareInfo = value }
-	@Keyword public static void setIotExtraFareInfo(String value) { IotExtraFareInfo = value }
+	@Keyword public static void setIotFareInfo(String value) {
+		IotFareInfo = value
+	}
+	@Keyword public static void setIotExtraFareInfo(String value) {
+		IotExtraFareInfo = value
+	}
 
 	@Keyword
 	public static void setOrderStatus(String order_status) {
@@ -90,11 +118,19 @@ public class TransactionalManager {
 		}
 	}
 
-	@Keyword public static void setStatusBeforeLoading(String value) { StatusBeforeLoading = value }
-	@Keyword public static void setExpectedAndroidDriver(String value) { ExpectedAndroidDriver = value }
+	@Keyword public static void setStatusBeforeLoading(String value) {
+		StatusBeforeLoading = value
+	}
+	@Keyword public static void setExpectedAndroidDriver(String value) {
+		ExpectedAndroidDriver = value
+	}
 
-	@Keyword public static void setExpectedToastMessageEng(String value) { ExpectedToastMessageEng = value }
-	@Keyword public static void setExpectedToastMessageIdn(String value) { ExpectedToastMessageIdn = value }
+	@Keyword public static void setExpectedToastMessageEng(String value) {
+		ExpectedToastMessageEng = value
+	}
+	@Keyword public static void setExpectedToastMessageIdn(String value) {
+		ExpectedToastMessageIdn = value
+	}
 
 	@Keyword
 	public static void verifyActualText(String actual, String expected_eng, String expected_idn, FailureHandling priority = FailureHandling.STOP_ON_FAILURE) {
@@ -116,55 +152,97 @@ public class TransactionalManager {
 		}
 	}
 
-	@Keyword public static void setBBDAuthToken(String value) { BBDAuthToken = value }
-	@Keyword public static void setCPAuthToken(String value) { CPAuthToken = value }
-	@Keyword public static void setBBDSimulatorSession(String value) { BBDSimulatorSession = value }
+	@Keyword public static void setBBDAuthToken(String value) {
+		BBDAuthToken = value
+	}
+	@Keyword public static void setCPAuthToken(String value) {
+		CPAuthToken = value
+	}
+	@Keyword public static void setBBDSimulatorSession(String value) {
+		BBDSimulatorSession = value
+	}
 
 	@Keyword
 	public static String getBBDSimulatorNomorLambung() {
-	    return BBDSimulatorNomorLambung ?: GlobalVariable.BBDSimulatorNomorLambung
+		return BBDSimulatorNomorLambung ?: GlobalVariable.BBDSimulatorNomorLambung
 	}
-	
+
 	@Keyword
 	public static String getBBDSimulatorDriverID() {
-	    return BBDSimulatorDriverID ?: GlobalVariable.BBDSimulatorDriverID
+		return BBDSimulatorDriverID ?: GlobalVariable.BBDSimulatorDriverID
 	}
-	
+
 	@Keyword
 	public static String getBBDSimulatorVehicleID() {
-	    return BBDSimulatorVehicleID ?: GlobalVariable.BBDSimulatorVehicleID
+		return BBDSimulatorVehicleID ?: GlobalVariable.BBDSimulatorVehicleID
 	}
 
-	@Keyword public static void setBBDSimulatorDriverPass(String value) { BBDSimulatorDriverPass = value }
-	@Keyword public static void setBBDSimulatorDeviceID(String value) { BBDSimulatorDeviceID = value }
+	@Keyword public static void setBBDSimulatorDriverPass(String value) {
+		BBDSimulatorDriverPass = value
+	}
+	@Keyword public static void setBBDSimulatorDeviceID(String value) {
+		BBDSimulatorDeviceID = value
+	}
 
-	@Keyword public static void setOrderID(String value) { OrderID = value }
-	@Keyword public static String getOrderID() { return OrderID }
+	@Keyword public static void setOrderID(String value) {
+		OrderID = value
+	}
+	@Keyword public static String getOrderID() {
+		return OrderID
+	}
 
-	@Keyword public static void setPriceBeforePromo(String value) { PriceBeforePromo = value }
-	@Keyword public static void setPriceAfterPromo(String value) { PriceAfterPromo = value }
+	@Keyword public static void setPriceBeforePromo(String value) {
+		PriceBeforePromo = value
+	}
+	@Keyword public static void setPriceAfterPromo(String value) {
+		PriceAfterPromo = value
+	}
 
-	@Keyword public static void setEvoucherBalance(String value) { EvoucherBalance = value }
-	@Keyword public static void setAmountTrips(String value) { AmountTrips = value }
+	@Keyword public static void setEvoucherBalance(String value) {
+		EvoucherBalance = value
+	}
+	@Keyword public static void setAmountTrips(String value) {
+		AmountTrips = value
+	}
 
-	@Keyword public static void setMyBBToken(String value) { MyBBToken = value }
+	@Keyword public static void setMyBBToken(String value) {
+		MyBBToken = value
+	}
 	@Keyword public static String getBBDAuthToken() {
-	if (!GlobalVariable.bbdAuthToken || GlobalVariable.bbdAuthToken.toString().isEmpty()) {
-		KeywordUtil.markFailedAndStop("❌ GlobalVariable.bbdAuthToken kosong. Pastikan token sudah di-set sebelumnya.")
+		if (!GlobalVariable.bbdAuthToken || GlobalVariable.bbdAuthToken.toString().isEmpty()) {
+			KeywordUtil.markFailedAndStop("❌ GlobalVariable.bbdAuthToken kosong. Pastikan token sudah di-set sebelumnya.")
+		}
+		return GlobalVariable.bbdAuthToken
 	}
-	return GlobalVariable.bbdAuthToken
-}
 
-	@Keyword public static void setHandlingFeeActualFare(String value) { HandlingFeeActualFare = value }
-	@Keyword public static void setHandlingFee(String value) { HandlingFee = value }
-	@Keyword public static void setHandlingFeeTotal(String value) { HandlingFeeTotal = value }
+	@Keyword public static void setHandlingFeeActualFare(String value) {
+		HandlingFeeActualFare = value
+	}
+	@Keyword public static void setHandlingFee(String value) {
+		HandlingFee = value
+	}
+	@Keyword public static void setHandlingFeeTotal(String value) {
+		HandlingFeeTotal = value
+	}
 
-	@Keyword public static void setOrderIDMybb(String value) { OrderIDMybb = value }
-	@Keyword public static String getOrderIDMybb() { return OrderIDMybb }
+	@Keyword public static void setOrderIDMybb(String value) {
+		OrderIDMybb = value
+	}
+	@Keyword public static String getOrderIDMybb() {
+		return OrderIDMybb
+	}
 
-	@Keyword public static void setIotState(String value) { IotState = value }
-	@Keyword public static String getIotState() { return IotState }
+	@Keyword public static void setIotState(String value) {
+		IotState = value
+	}
+	@Keyword public static String getIotState() {
+		return IotState
+	}
 
-	@Keyword public static void setPairingDriver(String value) { PairingDriver = value }
-	@Keyword public static String getPairingDriver() { return PairingDriver }
+	@Keyword public static void setPairingDriver(String value) {
+		PairingDriver = value
+	}
+	@Keyword public static String getPairingDriver() {
+		return PairingDriver
+	}
 }
