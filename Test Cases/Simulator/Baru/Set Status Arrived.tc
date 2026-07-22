@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Set Status Arrived</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>389d9e7d-9683-4fdb-b235-239ec58cf3d6</testCaseGuid>
+</TestCaseEntity>

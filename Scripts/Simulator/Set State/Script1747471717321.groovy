@@ -14,7 +14,7 @@ def expected_status = expected_status
 
 
 WS.delay(3)
-long timeout = new Date().getTime() + (9000 * GlobalVariable.globalLoading)
+long timeout = new Date().getTime() + (9000 * GlobalVariable.TIMEOUT_SHORT)
 
 switch (expected_status) {
 	case "start":

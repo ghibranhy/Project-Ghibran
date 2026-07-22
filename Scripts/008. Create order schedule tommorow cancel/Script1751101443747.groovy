@@ -18,6 +18,8 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import custom_library.ErrorHandlingManager
 
+Mobile.startExistingApplication('com.seatech.bluebird.regress')
+
 Mobile.swipe(500, 1600, 500, 400) 
 Mobile.delay(1)
 
@@ -37,6 +39,5 @@ Mobile.tap(findTestObject('Object Repository/Delivery/6. On Trip/button.SubmitCa
 
 // Screenshot hasil
 Mobile.takeScreenshot()
-
 
 

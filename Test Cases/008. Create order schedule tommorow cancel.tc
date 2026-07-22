@@ -4,5 +4,6 @@
    <name>008. Create order schedule tommorow cancel</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>cf3a28d1-4407-4f4e-8231-2f19ea7c04a3</testCaseGuid>
 </TestCaseEntity>

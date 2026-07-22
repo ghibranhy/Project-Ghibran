@@ -41,19 +41,19 @@ Mobile.startExistingApplication('com.seatech.bluebird.regress')
 //ErrorHandlingManager.doubledTap(findTestObject('Object Repository/Delivery/2. Search Location/button.Input.Pickup'), 5)
 //
 //// Optional clear text
-//Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/button.ClearText'), 3, FailureHandling.OPTIONAL)
+//Mobile.tap(findTestObject('null'), 3, FailureHandling.OPTIONAL)
 //
 //// Isi Pickup Location
-//waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/button.EditPickup'))
-//Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/button.EditPickup'), 'miesol kosambi', 3)
+//waitForReadyAndTap(findTestObject('null'))
+//Mobile.setText(findTestObject('null'), 'miesol kosambi', 3)
 //Mobile.hideKeyboard()
-//waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/textView.PickUpAddress (1)'))
+//waitForReadyAndTap(findTestObject('null'))
 //
 //// Isi Destination Location
 //Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/button.EditDestination'), 'smp negeri 120 jakarta', 3)
 //Mobile.hideKeyboard()
-//Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/2. Search Location/textView.DestinationAddress (1)'), 5)
-//Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/textView.DestinationAddress (1)'), 5)
+//Mobile.waitForElementPresent(findTestObject('null'), 5)
+//Mobile.tap(findTestObject('null'), 5)
 //
 //// Sender Detail
 //waitForReadyAndTap(findTestObject('Object Repository/Delivery/3. Sender Detail/button.PackageType'))

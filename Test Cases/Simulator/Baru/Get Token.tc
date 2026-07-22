@@ -4,5 +4,6 @@
    <name>Get Token</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>093f7c94-183e-4441-9a54-3ad1beda8a17</testCaseGuid>
 </TestCaseEntity>

@@ -4,5 +4,6 @@
    <name>001. Create order immediate cancel</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>0cd32ade-7724-4e02-b8c1-65b6b0f83535</testCaseGuid>
 </TestCaseEntity>

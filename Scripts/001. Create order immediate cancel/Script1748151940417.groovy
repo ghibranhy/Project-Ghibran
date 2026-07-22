@@ -17,10 +17,11 @@ import com.kms.katalon.core.windows.keyword.WindowsBuiltinKeywords as Windows
 import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import custom_library.ErrorHandlingManager
+import com.kms.katalon.core.testobject.ConditionType
+import com.kms.katalon.core.util.KeywordUtil
 
 Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
-//Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
 // Helper function: tunggu elemen hadir & enabled, lalu tap
 def waitForReadyAndTap(TestObject to, int timeout = 5) {
@@ -37,23 +38,23 @@ waitForReadyAndTap(findTestObject('Object Repository/Delivery/1. Home Page/butto
 waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/button.Input.Pickup'), 3)
 
 // Double tap pake custom ErrorHandlingManager
-ErrorHandlingManager.doubledWaitForElementPresent(findTestObject('Object Repository/Delivery/2. Search Location/button.Input.Pickup'), 5)
+Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/2. Search Location/button.Input.Pickup'), 3)
 ErrorHandlingManager.doubledTap(findTestObject('Object Repository/Delivery/2. Search Location/button.Input.Pickup'), 5)
 
-// Optional clear text
-Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/button.ClearText'), 3, FailureHandling.OPTIONAL)
+//clear text
+Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/button.ClearText'), 3,)
 
 // Isi Pickup Location
-waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/button.EditPickup'))
-Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/button.EditPickup'), 'miesol kosambi', 3)
+Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/android.widget.EditText - Current location'), 'bandara city mall', 3)
 Mobile.hideKeyboard()
-waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/textView.PickUpAddress (1)'))
+waitForReadyAndTap(findTestObject('Object Repository/Delivery/2. Search Location/TextView_PickUpLocationUpdate'))
 
-// Isi Destination Location
-Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/button.EditDestination'), 'smp negeri 120 jakarta', 3)
+//Isi Destination Location
+Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/android.widget.EditText - Deliver to'), 5)
+Mobile.setText(findTestObject('Object Repository/Delivery/2. Search Location/android.widget.EditText - Deliver to'), 'smp negeri 120 jakarta', 3)
 Mobile.hideKeyboard()
-Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/2. Search Location/textView.DestinationAddress (1)'), 5)
-Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/textView.DestinationAddress (1)'), 5)
+Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/2. Search Location/TextView_DestinationLocation'), 5)
+Mobile.tap(findTestObject('Object Repository/Delivery/2. Search Location/TextView_DestinationLocation'), 5)
 
 // Sender Detail
 waitForReadyAndTap(findTestObject('Object Repository/Delivery/3. Sender Detail/button.PackageType'))

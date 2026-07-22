@@ -4,5 +4,6 @@
    <name>010. Add Payment Mastercard</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>79fee3ad-fbe3-4da7-85ad-44efe3c7ca1f</testCaseGuid>
 </TestCaseEntity>

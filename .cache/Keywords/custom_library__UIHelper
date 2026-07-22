@@ -1,0 +1,46 @@
+{
+  "keywordFileContentHash": "EDA2F211CA68746A25469595FD37990C",
+  "keywordClasses": [
+    {
+      "name": "custom_library.MobileActions",
+      "keywordMethods": [
+        {
+          "name": "waitForReadyAndTap",
+          "parameters": [
+            {
+              "name": "obj",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "timeout",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ]
+        },
+        {
+          "name": "tapSubmitButton",
+          "parameters": []
+        }
+      ]
+    }
+  ],
+  "javadocParsed": false
+}

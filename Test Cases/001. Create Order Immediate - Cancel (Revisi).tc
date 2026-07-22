@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>001. Create Order Immediate - Cancel (Revisi)</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>11ff738a-2ad3-4ea0-942f-278599f25be5</testCaseGuid>
+</TestCaseEntity>

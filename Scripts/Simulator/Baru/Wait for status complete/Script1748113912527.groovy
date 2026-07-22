@@ -15,7 +15,7 @@ token = TransactionalManager.getBBDAuthToken()
 order_id = TransactionalManager.getOrderID()
 
 order_status = null
-timeout = new Date().getTime() + (18000 * GlobalVariable.globalLoading)
+timeout = new Date().getTime() + (18000 * GlobalVariable.TIMEOUT_SHORT)
 
 while(order_status != 4 && new Date().getTime() < timeout) {
 	order_detail = WS.sendRequest(findTestObject('Object Repository/Simulator/Order Detail (input - token, order_id)', [('token') : token, ('order_id'): order_id]))

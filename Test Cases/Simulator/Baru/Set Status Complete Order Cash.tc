@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Set Status Complete Order Cash</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>125d803e-6dcf-4f64-8d66-aece0933e7ef</testCaseGuid>
+</TestCaseEntity>

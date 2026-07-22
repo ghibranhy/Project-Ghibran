@@ -4,5 +4,6 @@
    <name>003. Create order immediate success</name>
    <tag></tag>
    <comment></comment>
+   <recordOption>OTHER</recordOption>
    <testCaseGuid>3564e98b-d5da-4a0d-b042-da33c3e8d856</testCaseGuid>
 </TestCaseEntity>

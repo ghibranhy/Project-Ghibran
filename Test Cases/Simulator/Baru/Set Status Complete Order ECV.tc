@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestCaseEntity>
+   <description></description>
+   <name>Set Status Complete Order ECV</name>
+   <tag></tag>
+   <comment></comment>
+   <recordOption>OTHER</recordOption>
+   <testCaseGuid>f67df06b-9045-4784-9d4d-a8a6ec88ad81</testCaseGuid>
+</TestCaseEntity>

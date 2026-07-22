@@ -18,31 +18,39 @@ import internal.GlobalVariable as GlobalVariable
 import org.openqa.selenium.Keys as Keys
 import custom_library.ErrorHandlingManager
 
-Mobile.startExistingApplication('com.seatech.bluebird.regress')
+//Mobile.startExistingApplication('com.seatech.bluebird.regress')
 
-Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.Payment'), 3)
-Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.Payment'), 3)
-
-int maxSwipe = 5
-int swipeCount = 0
-while (!Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddPayment'), 2, FailureHandling.OPTIONAL) && swipeCount < maxSwipe) {
-    Mobile.swipe(500, 1600, 500, 1500)
-    swipeCount++
+// Helper function: tunggu elemen hadir & enabled, lalu tap
+def waitForReadyAndTap(TestObject to, int timeout = 5) {
+	Mobile.waitForElementPresent(to, timeout)
+	Mobile.waitForElementAttributeValue(to, 'enabled', 'true', timeout)
+	Mobile.tap(to, timeout)
 }
 
-Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddPayment'), 3)
-Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddPayment'), 3)
+//Select Payment
+while (true) {
 
+    Mobile.tapAtPosition(293, 1884)
+    Mobile.delay(1)
+	
+    Mobile.swipe(500, 1600, 500, 400)
+    Mobile.delay(1)
+
+    if (Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddPayment'), 2)) {
+        Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddPayment'), 3)
+        break
+    }
+}
 
 Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddCC'), 3)
 Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.AddCC'), 3)
 
-def card_number = '5211 1111 1111 1117'
-def expired_date = '0529'
+def cardNumber = '3701 9216 9722 458'
+def expired_date = '1226'
 def cvv = '123'
 
 Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditCardNumber'), 3)
-Mobile.setText(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditCardNumber'), card_number, 3)
+Mobile.setText(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditCardNumber'), cardNumber, 3)
 Mobile.delay(1)
 
 Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditExpiryDate'), 3)
@@ -51,14 +59,18 @@ Mobile.delay(1)
 
 Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditCVV'), 3)
 Mobile.setText(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.EditCVV'), cvv, 3)
-Mobile.takeScreenshot()
-Mobile.pressBack()
-	
-Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.SaveCC'), 3)
-Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.SaveCC'), 3)
+Mobile.delay (2)
+
+Mobile.tapAtPosition(576, 999)
 
 def button_idn = 'Simpan kartu kredit'
 def button_eng = 'Save new card'
+
+if (Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.SaveNewCard', [('name') : button_idn]), 5)) {
+    Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.SaveNewCard', [('name') : button_idn]), 3)
+} else {
+    Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.SaveNewCard', [('name') : button_eng]), 3)
+}
 
 Mobile.delay(3)
 
@@ -71,4 +83,3 @@ Mobile.setText(findTestObject('Object Repository/Delivery/5. Confirmation Page/P
 Mobile.waitForElementPresent(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.OK'), 3)
 Mobile.tap(findTestObject('Object Repository/Delivery/5. Confirmation Page/Payment/button.OK'), 3)
 Mobile.takeScreenshot()
-

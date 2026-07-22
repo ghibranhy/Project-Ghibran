@@ -35,13 +35,13 @@ import com.kms.katalon.core.util.KeywordUtil
 //	resp = WS.sendRequest(findTestObject('Object Repository/Simulator/On Going Order, Schedule',
 //		[
 //			'token':TransactionalManager.getMyBBToken(),
-//			'app_version':GlobalVariable.mybb_app_version
+//			'app_version':GlobalVariable.APP_VERSION
 //		]))
 //} else {
 //	resp = WS.sendRequest(findTestObject('Object Repository/Simulator/On Going Order',
 //	[
 //		'token':TransactionalManager.getMyBBToken(),
-//		'app_version':GlobalVariable.mybb_app_version
+//		'app_version':GlobalVariable.APP_VERSION
 //	]))
 //
 //def jsonSlurper = new JsonSlurper()
@@ -79,7 +79,7 @@ import com.kms.katalon.core.util.KeywordUtil
 //	[
 //		'order_id': order_id,
 //		'token': TransactionalManager.getMyBBToken(),
-//		'app_version': GlobalVariable.mybb_app_version
+//		'app_version': GlobalVariable.APP_VERSION
 //	]))
 //
 //if (WS.getResponseStatusCode(order_detail) != 200 && WS.getResponseStatusCode(order_detail) != 201) {
@@ -143,7 +143,7 @@ String apiPath = isSchedule ? 'Object Repository/Simulator/On Going Order, Sched
 while (retryCount < maxRetry) {
 	resp = WS.sendRequest(findTestObject(apiPath, [
 		'token': TransactionalManager.getMyBBToken(),
-		'app_version': GlobalVariable.mybb_app_version
+		'app_version': GlobalVariable.APP_VERSION
 	]))
 
 	if (WS.getResponseStatusCode(resp) != 200 && WS.getResponseStatusCode(resp) != 201) {
