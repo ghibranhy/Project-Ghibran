@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Order ID</name>
+   <name>TC_PAY_002_Create_Completed_Order_Cash</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>aba9d9a8-378e-4eb3-9fea-c9eccb79688f</testCaseGuid>
+   <testCaseGuid>255112a3-b922-4f70-8850-68dae5489cd5</testCaseGuid>
 </TestCaseEntity>

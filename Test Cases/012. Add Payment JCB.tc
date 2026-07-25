@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>012. Add Payment JCB</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>59a6a740-b642-48e3-bd11-d01094b13a67</testCaseGuid>
-</TestCaseEntity>

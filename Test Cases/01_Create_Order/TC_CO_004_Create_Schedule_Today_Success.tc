@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Order ID</name>
+   <name>TC_CO_004_Create_Schedule_Today_Success</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>aba9d9a8-378e-4eb3-9fea-c9eccb79688f</testCaseGuid>
+   <testCaseGuid>02fcd792-1732-46b5-9b69-84b755d596c5</testCaseGuid>
 </TestCaseEntity>

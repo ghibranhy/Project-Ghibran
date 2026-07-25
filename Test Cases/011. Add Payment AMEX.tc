@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>011. Add Payment AMEX</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>4babb816-59d9-4af9-8da2-6572a3d78314</testCaseGuid>
-</TestCaseEntity>

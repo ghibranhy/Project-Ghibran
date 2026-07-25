@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Order ID</name>
+   <name>TC_PAY_004_Create_Completed_Order_ECV</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>aba9d9a8-378e-4eb3-9fea-c9eccb79688f</testCaseGuid>
+   <testCaseGuid>c9716b8e-d595-4a11-a81e-4e47faefe91a</testCaseGuid>
 </TestCaseEntity>

@@ -1,0 +1,143 @@
+{
+  "keywordFileContentHash": "BF21811BFAA37C71CDBF4FD0E4DCA290",
+  "keywordClasses": [
+    {
+      "name": "custom_library.MobileHelper",
+      "keywordMethods": [
+        {
+          "name": "tapByPercentage",
+          "parameters": [
+            {
+              "name": "xPercent",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "double",
+                "unresolvedClassName": "double",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "yPercent",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "double",
+                "unresolvedClassName": "double",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t * Melakukan tap berdasarkan persentase relatif ukuran layar device.\r\n\t * @param xPercent Persentase koordinat sumbu X (0.0 - 1.0)\r\n\t * @param yPercent Persentase koordinat sumbu Y (0.0 - 1.0)\r\n\t */"
+        },
+        {
+          "name": "tapRatingStar",
+          "parameters": [
+            {
+              "name": "starNumber",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t * Tap bintang rating pada halaman Complete Order secara dinamis berdasarkan \r\n\t * posisi dan dimensi aktual elemen RatingBar di layar.\r\n\t * @param starNumber Nomor bintang yang dipilih (1 sampai 5)\r\n\t */"
+        },
+        {
+          "name": "tapCreateOrderButton",
+          "parameters": [],
+          "javadoc": "/**\r\n\t * Tap tombol \u0027Create Order\u0027 / \u0027Pesan Sekarang\u0027 pada halaman konfirmasi.\r\n\t */"
+        },
+        {
+          "name": "tapPromoOption",
+          "parameters": [],
+          "javadoc": "/**\r\n\t * Tap area pilihan promo pada halaman konfirmasi pesanan.\r\n\t */"
+        },
+        {
+          "name": "tapTripPurposeOption",
+          "parameters": [],
+          "javadoc": "/**\r\n\t * Tap area pilihan Trip Purpose (banner \"Please enter the purpose of the trip\").\r\n\t */"
+        },
+        {
+          "name": "tapScheduleOption",
+          "parameters": [],
+          "javadoc": "/**\r\n\t * Tap opsi pilihan jadwal/schedule pengiriman.\r\n\t */"
+        },
+        {
+          "name": "tapPaymentOption",
+          "parameters": [],
+          "javadoc": "/**\r\n\t * Tap opsi pilihan metode pembayaran (Payment Method).\r\n\t */"
+        },
+        {
+          "name": "swipeUntilElementFound",
+          "parameters": [
+            {
+              "name": "testObject",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            },
+            {
+              "name": "maxSwipe",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "int",
+                "unresolvedClassName": "int",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": true,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": "/**\r\n\t * Swipe ke bawah secara otomatis sampai menemukan elemen target.\r\n\t * @param testObject Target elemen yang dicari\r\n\t * @param maxSwipe Batas maksimal iterasi swipe\r\n\t * @return boolean Status keberadaan elemen\r\n\t */"
+        },
+        {
+          "name": "tapRatingStar",
+          "parameters": [],
+          "javadoc": ""
+        },
+        {
+          "name": "swipeUntilElementFound",
+          "parameters": [
+            {
+              "name": "testObject",
+              "initialExpression": "",
+              "type": {
+                "fullClassName": "com.kms.katalon.core.testobject.TestObject",
+                "unresolvedClassName": "TestObject",
+                "isArray": false,
+                "isGnericsPlaceHolder": false,
+                "hasImmutableClassName": false,
+                "genericsTypes": [],
+                "errorOnParsing": false
+              }
+            }
+          ],
+          "javadoc": ""
+        }
+      ]
+    }
+  ],
+  "javadocParsed": true
+}

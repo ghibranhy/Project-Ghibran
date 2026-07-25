@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Order ID</name>
+   <name>TC_RT_006_Rating_With_Maximum_Tip</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>aba9d9a8-378e-4eb3-9fea-c9eccb79688f</testCaseGuid>
+   <testCaseGuid>45ad7b21-4987-45e1-be50-cc8981a48d93</testCaseGuid>
 </TestCaseEntity>

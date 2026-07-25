@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>Set Status Complete Order CC</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>d567006d-6a88-4cf4-ad2b-95a3d3ec8716</testCaseGuid>
-</TestCaseEntity>

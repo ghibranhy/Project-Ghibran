@@ -5,13 +5,14 @@
    <tag></tag>
    <elementGuidId>a3b00b02-1295-4266-abd1-69ec71bbadfc</elementGuidId>
    <selectorMethod>BASIC</selectorMethod>
+   <smartLocatorEnabled>false</smartLocatorEnabled>
    <useRalativeImagePath>false</useRalativeImagePath>
    <autoUpdateContent>false</autoUpdateContent>
    <connectionTimeout>-1</connectionTimeout>
    <followRedirects>false</followRedirects>
    <httpBody></httpBody>
    <httpBodyContent>{
-  &quot;text&quot;: &quot;{\n  \&quot;country_code\&quot;: \&quot;+62\&quot;,\n  \&quot;login_id\&quot;: \&quot;0895351529742\&quot;,\n  \&quot;login_type\&quot;: \&quot;phone\&quot;,\n  \&quot;region_code\&quot;: \&quot;ID\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;\n}&quot;,
+  &quot;text&quot;: &quot;{\n  \&quot;country_code\&quot;: \&quot;+62\&quot;,\n  \&quot;login_id\&quot;: \&quot;${phone_number}\&quot;,\n  \&quot;login_type\&quot;: \&quot;phone\&quot;,\n  \&quot;region_code\&quot;: \&quot;ID\&quot;,\n  \&quot;request_id\&quot;: \&quot;00000000-0000-0000-SESS-000000000DEF\&quot;,\n  \&quot;device_id\&quot;: \&quot;testing\&quot;,\n  \&quot;operating_system\&quot;: \&quot;Android\&quot;\n}&quot;,
   &quot;contentType&quot;: &quot;application/json&quot;,
   &quot;charset&quot;: &quot;UTF-8&quot;
 }</httpBodyContent>
@@ -35,6 +36,7 @@
    <katalonVersion>8.4.1</katalonVersion>
    <maxResponseSize>-1</maxResponseSize>
    <migratedVersion>5.4.1</migratedVersion>
+   <path></path>
    <restRequestMethod>POST</restRequestMethod>
    <restUrl>https://regress-mybb-gw.bluebird.id/api/v6/sessions/check</restUrl>
    <serviceType>RESTful</serviceType>
@@ -45,6 +47,13 @@
    <soapServiceFunction></soapServiceFunction>
    <socketTimeout>-1</socketTimeout>
    <useServiceInfoFromWsdl>true</useServiceInfoFromWsdl>
+   <variables>
+      <defaultValue>GlobalVariable.null</defaultValue>
+      <description></description>
+      <id>7b580745-310c-4a89-8125-bcc82ce00e4d</id>
+      <masked>false</masked>
+      <name>phone_number</name>
+   </variables>
    <verificationScript>import static org.assertj.core.api.Assertions.*
 
 import com.kms.katalon.core.testobject.RequestObject

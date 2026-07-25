@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <TestCaseEntity>
    <description></description>
-   <name>Get Order ID</name>
+   <name>TC_PAY_008_Create_Completed_Order_Mastercard_Promo</name>
    <tag></tag>
    <comment></comment>
    <recordOption>OTHER</recordOption>
-   <testCaseGuid>aba9d9a8-378e-4eb3-9fea-c9eccb79688f</testCaseGuid>
+   <testCaseGuid>3c9b86b9-8dce-4add-9da8-204b56d9afd1</testCaseGuid>
 </TestCaseEntity>

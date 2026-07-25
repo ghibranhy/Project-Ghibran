@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<TestCaseEntity>
-   <description></description>
-   <name>009. Add Payment Visa</name>
-   <tag></tag>
-   <comment></comment>
-   <recordOption>OTHER</recordOption>
-   <testCaseGuid>a9f1be94-eb63-4cf8-99aa-03cfe2e43957</testCaseGuid>
-</TestCaseEntity>
